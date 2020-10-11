@@ -7,9 +7,12 @@ authors = ["Czapp Ádám <czappadam@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 tensorflow = "^2.3.1"
+Flask = "^1.1.2"
+Flask-SQLAlchemy = "^2.4.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+yapf = "^0.30.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
