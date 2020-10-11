@@ -20,6 +20,20 @@ class User(db.Model):
         db.String(80))  #we will store only the hashed password
     admin = db.Column(db.Boolean)
 
+@app.route('/user', methods = ['GET'])
+def get_all_users():
+    '''returns all users from the databse'''
+    return ''
+
+@app.route('/user/<user_id>', methods = ['GET'])
+def get_user():
+    '''return one user specified by the user id'''
+    return ''
+
+@app.route('/user', methods = ['POST'])
+def create_user():
+    '''create a user'''
+    return ''
 
 if __name__ == '__main__':
     app.run(debug=True)
