@@ -36,8 +36,8 @@ def get_all_users():
     return jsonify({'users' : users})
 
 
-@app.route('/user/<user_id>', methods = ['GET'])
-def get_user():
+@app.route('/user/<public_id>', methods = ['GET'])
+def get_user(public_id):
     '''return one user specified by the user id'''
     
     return ''
@@ -60,15 +60,15 @@ def create_user():
     return jsonify({'message' : 'Successfully created.'}), status.HTTP_200_OK
 
 
-@app.route('/user/<user_id>', methods = ['PUT'])
-def promote_user():
+@app.route('/user/<public_id>', methods = ['PUT'])
+def promote_user(public_id):
     '''promotes any user to admin'''
     
     return ''
 
 
-@app.route('/user/<user_id>', methods = ['DELETE'])
-def delete_user():
+@app.route('/user/<public_id>', methods = ['DELETE'])
+def delete_user(public_id):
     
     return ''
 
