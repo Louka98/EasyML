@@ -33,7 +33,7 @@ def plot_contours(ax, classifier, xx, yy, **params):
 
 
 fig, ax = plt.subplots()
-
+ 
 title = ('Decision surface of linear SVC ')
 # Set-up grid for plotting.
 X0, X1 = X[:, 0], X[:, 1]
