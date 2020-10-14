@@ -7,7 +7,7 @@ from sklearn.datasets import load_breast_cancer
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix
 
-
+#add upload dataset function
 
 data = load_breast_cancer()
 X, y = load_breast_cancer(return_X_y=True)
