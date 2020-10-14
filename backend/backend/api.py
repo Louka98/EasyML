@@ -178,5 +178,3 @@ if __name__ == '__main__':
         db.session.add(new_user)
         db.session.commit()
     app.run(debug=True)
-
-    #added comment
