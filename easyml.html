@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="The most popular HTML, CSS, and JS library in the world.">
+	<title>Easy HTML &mdash; Landing page</title>
+
+	<!-- CSS only v5.getbootstrap.com -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+	<!-- fonts google -->
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<style type="text/css">
+		/* init */
+		h1 {
+			font-family: 'Playfair Display', serif !important;
+			font-size: 3.4rem;
+		}
+		* {
+			font-family: 'Roboto', sans-serif;
+		}
+		body {
+			margin-top: 56px;
+		}
+		/* hero */
+		.hero button, .sign-up button {
+			padding-left: 3rem;
+			padding-right: 3rem;
+		}
+		.hero .text {
+			padding-top: 5rem;
+		}
+		/* features */
+		.features h1, .sign-up h1, .documentation h1, .about-us h1{
+			font-weight: 600;
+			font-size: 2rem
+		}
+		/* navbar */
+		.navbar {
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- nav -->
+	<div class="nav mt-0 shadow-sm fixed-top">
+		<!-- navbar -->
+		<nav class="navbar container navbar-expand-lg navbar-light">
+		  <div class="container-fluid">
+		    <a class="navbar-brand" href="#">
+		    	<img src="https://storage.moqups.com/repo/AP0UbHE5ve/HUs2CuLXFs.png" height="32"/>
+		    </a>
+		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+    		</button>
+		</nav>
+	</div><!-- end of nav -->
+
+	<!-- Hero -->
+	<div class="container hero border-bottom">
+		<div class="row">
+			<div class="col-md-4 col-sm-12 col-lg-4">
+				<div class="text">
+					<h1 class="pt-2 pb-2 mt-2 mb-2">Use machine learning in one click</h1>
+					<button class="btn btn-primary btn-lg rounded-pill">Start now</button>
+				</div>	
+			</div>
+
+			<div class="col-md-8 col-sm-12 col-lg-8">
+				<img src="https://storage.moqups.com/repo/AP0UbHE5ve/MuGZS3u9MB.jpg" class="img-fluid"/>
+			</div>
+		</div>	
+	</div><!-- end hero -->
+
+	<!-- Features -->
+	<div class="container features border-bottom pt-5 pb-3">
+		<h1 class="text-center text-primary">
+			Main features / Benefits
+		</h1> 
+		<p class="pr-3 pl-3 text-center text-muted pb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+
+		<div class="container pt-4">
+			<div class="row">
+				<div class="col-md-4 col-sm-12 col-lg-4">
+					<div class="row">
+						<div class="col-6 text-center">
+							<!-- check icon -->
+							<svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+								<path d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z" fill="#293C7D"/>
+								<path d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z" fill="#4899D2"/>
+							</svg>
+						</div>
+						<div class="col-6">
+							<h1 class="text-primary">No code</h1>
+							<p class="text-muted">
+								You are able to data analysis without a single line of code.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-lg-4">
+					<div class="row">
+						<div class="col-6 text-center">
+							<!-- check icon -->
+							<svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+								<path d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z" fill="#293C7D"/>
+								<path d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z" fill="#4899D2"/>
+							</svg>
+						</div>
+						<div class="col-6">
+							<h1 class="text-primary">Easy to use</h1>
+							<p class="text-muted">
+								Just upload data, choose which ML algorithm you want apply and  that's it.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-lg-4">
+					<div class="row">
+						<div class="col-6 text-center">
+							<!-- check icon -->
+							<svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+								<path d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z" fill="#293C7D"/>
+								<path d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z" fill="#4899D2"/>
+							</svg>
+						</div>
+						<div class="col-6">
+							<h1 class="text-primary">Earn time</h1>
+							<p class="text-muted">
+								Save your time by not learning, writing programs.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- end features -->
+
+
+	<!-- sign up -->
+	<div class="container sign-up pt-5 pb-5 border-bottom">
+		<h1 class="text-center text-primary">Sign up</h1>
+
+		<div class="row pt-3">
+			<!-- form -->
+			<div class="col-md-6 col-sm-12 col-lg-6">
+				<form class="pt-3 mt-3">
+				  	<div class="mb-3">
+				    	<input type="text" placeholder="Full Name" class="form-control form-control-lg" />
+				  	</div>
+					<div class="mb-3">
+					    <input type="email" placeholder="Email Address" class="form-control form-control-lg" />
+				  	</div>
+					<div class="mb-3">
+					    <input type="text" placeholder="Job" class="form-control form-control-lg" />
+				  	</div>
+				  	<div class="mb-3">
+				  		<label for="datapicker" class="form-label">Birthdate:</label>
+					    <input type="date" id="datapicker" class="form-control form-control-lg" />
+				  	</div>
+				  	<div class="mb-3">
+				  		<p>Sex:</p>
+
+				  		<input class="form-check-input pl-2 pr-2 ml-2 mr-2" type="radio" name="sex" id="male" value="male" />
+						<label class="form-check-label" for="male">
+						  Male
+						</label>
+
+						<input class="form-check-input pl-2 pr-2 ml-2 mr-2" type="radio" name="sex" id="female" value="female" />
+						<label class="form-check-label" for="female">
+						  Female
+						</label>
+				  	</div>
+				  	<div class="mb-3">
+				    	<input type="text" placeholder="Password" class="form-control form-control-lg">
+				  	</div>
+				  	<div class="mb-3">
+				    	<input type="text" placeholder="Verify Password" class="form-control form-control-lg" />
+				  	</div>
+				  <button class="btn btn-primary btn-lg rounded-pill" type="submit">Sign Up</button>
+				</form>
+			</div><!-- end form -->
+
+			<div class="col-md-6 col-sm-12 col-lg-6">
+				<img src="https://storage.moqups.com/repo/AP0UbHE5ve/8GEUcXKGRI.jpg" class="img-fluid"/>
+			</div>	
+		</div>	
+	</div><!-- sign up -->
+
+
+	<!-- Documentation -->
+	<div class="container sign-up pt-5 documentation border-bottom">
+		<h1 class="text-center text-primary">Documentation</h1>
+		<p class="pr-3 pl-3 text-center text-muted pb-4 pt-5">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+	</div><!-- end Documentation-->	
+
+
+	<!-- Footer -->
+	<div class="container sign-up pt-5 footer border-bottom">
+			<!-- Logo -->
+			<img src="https://storage.moqups.com/repo/AP0UbHE5ve/HUs2CuLXFs.png" height="32">
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-lg-6">
+					<div class="pt-5 about-us">
+						<h1 class="text-primary">About Us</h1>
+						<p class="text-muted" style="text-align: justify;">
+							It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+						</p>
+					</div>	
+				</div>
+				<div class="col-md-6 col-sm-12 col-lg-6">
+					<div class="pt-5 about-us">
+						<h1 class="text-primary">Get in touch</h1>
+						<form>
+							<div class="mb-3">
+								<textarea placeholder="Type here" class="form-control-lg form-control" rows="3"></textarea>
+							</div>	
+							
+							<div class="mb-3">
+								<input type="email" name="email" placeholder="Email Address" class="form-control form-control-lg"/>
+							</div>
+							<button class="btn btn-primary btn-lg rounded-pill" type="submit">Send</button>
+						</form>
+					</div>	
+				</div>
+			</div>		
+
+		<p class="text-muted pt-5">&copy; 2020 EasyML. All rights reserved.</p>
+	</div>
+	<!--end of footer-->
+
+	<!-- JavaScript Bundle with Popper.js v5.getbootstrap.com -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+</body>
+</html>
