@@ -65,6 +65,7 @@ def login():
     '''login with username and password'''
     
     auth = request.authorization
+    print(auth)
     if not auth or not auth.username or not auth.password:
         make_response('wrong content', status.HTTP_400_BAD_REQUEST)
 
