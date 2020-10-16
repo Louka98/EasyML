@@ -13,6 +13,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'asdfdgd123'  #to use token encoding
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ezml.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  #database
 
@@ -56,6 +57,8 @@ def token_required(f):
     return decorated
 
 #TODO registration
+@app.route
+
 
 @app.route('/login')
 def login():
