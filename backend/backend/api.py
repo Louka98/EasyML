@@ -1,4 +1,5 @@
 from datetime import date
+from logging import error, exception
 from flask import Flask, request, jsonify, make_response
 from flask_api import status
 from flask_sqlalchemy import SQLAlchemy
@@ -17,6 +18,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  #database
 
+TOKEN_EXP_MIN = 30
+
 class User(db.Model):
     '''Class representing the users of the application'''
     id = db.Column(db.Integer, primary_key=True)
@@ -31,6 +34,7 @@ class User(db.Model):
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
+#TODO: optional refresh the token every x minutes 
 def token_required(f):
     '''decorator for token authentication
     if used, the first argument of the decorated function should be current_user'''
@@ -46,26 +50,50 @@ def token_required(f):
             return jsonify({'message': 'token is missing'}), status.HTTP_401_UNAUTHORIZED
 
         try: #if the token is't valid during decoding, it will raise an exception
-            token_data =  jwt.decode(token, app.config['SECRET_KEY'])
+            token_data =  jwt.decode(token.encode(), app.config['SECRET_KEY']) #it also checks the expiration of the token
             current_user = User.query.filter_by(public_id=token_data['public_id']).first()
         except:
-            
+
             return jsonify({'message': 'token is invalid'}),status.HTTP_401_UNAUTHORIZED
 
         return f(current_user, *args, **kwargs)
 
     return decorated
 
-#TODO registration
-@app.route
+@app.route('/register')
+def register():
+    '''registers a user to the database with the specified username and password,
+     but only if the username is not already in use'''
 
+    auth = request.authorization
+    if not auth or not auth.username or not auth.password:
+        make_response('wrong content', status.HTTP_400_BAD_REQUEST)
+
+    user = User.query.filter_by(name = auth.username).first()
+    if user:
+        return jsonify({'message' : 'Username already in use!'}),status.HTTP_401_UNAUTHORIZED
+   
+    try:
+        hashed_pwd = generate_password_hash(auth.password, method = 'sha256') #generating salted and hashed password
+        #uuid creates unique user id, version 4 creates a random one
+        new_user = User(public_id = str(uuid.uuid4()), name = auth.username, password = hashed_pwd, admin = False)
+        db.session.add(new_user)
+        db.session.commit()
+    except:
+        
+        return jsonify(succes = False), status.HTTP_400_BAD_REQUEST
+
+    #generate token from public_id, and adding a expire time for the token
+    token = jwt.encode({'public_id': new_user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = TOKEN_EXP_MIN)}, app.config['SECRET_KEY'])
+
+    return jsonify({'token':token.decode('UTF-8')})
+    
 
 @app.route('/login')
 def login():
     '''login with username and password'''
     
     auth = request.authorization
-    print(auth)
     if not auth or not auth.username or not auth.password:
         make_response('wrong content', status.HTTP_400_BAD_REQUEST)
 
@@ -76,7 +104,7 @@ def login():
     #user.password is hashed password
     if check_password_hash(user.password, auth.password):
         #generate token from public_id, and adding a expire time for the token
-        token = jwt.encode({'public_id': user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = 60)}, app.config['SECRET_KEY'])
+        token = jwt.encode({'public_id': user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = TOKEN_EXP_MIN)}, app.config['SECRET_KEY'])
 
         return jsonify({'token':token.decode('UTF-8')})
     
@@ -159,7 +187,8 @@ def promote_user(current_user, public_id:str):
 @app.route('/user/<public_id>', methods = ['DELETE'])
 @token_required
 def delete_user(current_user, public_id:str):
-    
+    '''deletes a user from the database'''
+
     if not current_user.admin:
         return jsonify({'message': 'Not authorized to do that'}), status.HTTP_401_UNAUTHORIZED
 
@@ -181,4 +210,5 @@ if __name__ == '__main__':
         new_user = User(public_id = str(uuid.uuid4()), name = 'admin', password = hashed_pwd, admin = True)
         db.session.add(new_user)
         db.session.commit()
+    print(db.metadata.tables)
     app.run(debug=True)

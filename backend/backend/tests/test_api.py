@@ -1,9 +1,11 @@
 from flask import json
 from backend.api import app,db,User
+from flask.wrappers import Response
 from sqlalchemy.util.compat import b64encode
 from sqlalchemy_utils import database_exists
 import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 def init():
     app.config.update(SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db')
@@ -14,15 +16,29 @@ def init():
         db.session.add(new_user)
         db.session.commit()
 
+def clean_up():
+    os.remove('test.db')
 
-def test_login():
-    init()
+def login():
     credentials = b64encode(b"test_username:test_password")      
     response = app.test_client().get(
         '/login',
         content_type='application/json', headers={"Authorization": f"Basic {credentials}"}
     )
+    return response
 
+def test_login():
+    init()
+    response = login()
     data = json.loads(response.get_data(as_text=True))
     assert response.status_code == 200
     assert len(data['token']) != 0
+    clean_up()
+
+def test_register():
+    init()
+    login()
+    clean_up()
+
+def test_invalid_register():
+    pass
