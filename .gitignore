@@ -1,3 +1,5 @@
 # ignores everything starting with "."
 .*
 __pycache__
+ezml.db
+test.db
