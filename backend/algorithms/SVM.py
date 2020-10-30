@@ -1,9 +1,8 @@
-from flask import Flask
+remove from flask import Flask
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import load_breast_cancer
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix
 
