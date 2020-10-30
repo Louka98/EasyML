@@ -1,0 +1,8 @@
+Flask-SQLAlchemy<3.0.0,>=2.4.4
+Flask<2.0.0,>=1.1.2
+flask_api<3.0,>=2.0
+pyjwt<2.0.0,>=1.7.1
+sqlalchemy_utils<0.37.0,>=0.36.8
+tensorflow<3.0.0,>=2.3.1
+uuid<2.0,>=1.30
+werkzeug<2.0.0,>=1.0.1
