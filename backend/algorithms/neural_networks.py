@@ -28,6 +28,7 @@ class ClassificationModel:
     act_func: Optional[ActivationFunctions]= None,
     hidden_act_func: Optional[ActivationFunctions]= None,
     dropout : int = None):
+
         self.type = type
         self.layers = layers
         self.neurons = neurons
@@ -63,12 +64,12 @@ class ClassificationModel:
         pass
 
     def train(self, train_x: np.ndarray, train_y: np.ndarray,
-            batch_size:int = 128, val_split = 0.1, epochs: int = 20, early_stopping: bool = True): #data_x is a [[1,2,3,4 ... some data]] and data_y = [0] thi is the label
+            batch_size:int = 128, val_split = 0.1, epochs: int = 20, early_stopping: bool = True): #data_x is a [[1,2,3,4 ...],[...]...] and data_y = [0,1,0,1..] are the labels in order
         '''trains the model'''
         
         self.model.compile(optimizer = 'adam', loss='binary_crossentropy')
         if early_stopping:
-            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=5)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, restore_best_weights= True)
             history = self.model.fit(train_x, train_y,
                         batch_size=batch_size,
                         epochs=epochs,
@@ -92,12 +93,12 @@ class ClassificationModel:
     def load_model(self, path):
         pass
 
-    def predict(self, data):
-        pass
+    def predict(self, data:np.ndarray):
+        return self.model.predict(data)
 
 if __name__ == '__main__':
-    train_x, train_y = np.arange(100).reshape(5, 20), np.zeros(5)
+    train_x, train_y = np.arange(100).reshape(5, 20), np.ones(5)
     model = ClassificationModel(layers= 10, neurons= 20, input_shape= (train_x.shape[-1],))
     model.binary()
     hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
-    print(hist)
+    print(model.predict(np.arange(20).reshape(1,20)))
