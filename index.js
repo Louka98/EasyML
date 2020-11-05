@@ -2,6 +2,7 @@ $(document).ready(function () {
     $(document).ready(function(){
         $("#hero2").hide();
         $("#errorFullName").hide();
+        $("#errorUserName").hide();
         $("#errorEmailAddress").hide();
         $("#errorJob").hide();
         $("#errorGender").hide();
@@ -11,6 +12,7 @@ $(document).ready(function () {
         $("#errorEmailAddressLogin").hide();
 
         var errorFullName = false;
+        var errorUserName = false;
         var errorEmailAddress = false;
         var errorJob = false;
         var errorGender = false;
@@ -22,6 +24,10 @@ $(document).ready(function () {
 
         $("#fullName").focusout(function (){
             checkFullName();
+        });
+
+        $("#userName").focusout(function (){
+            checkUserName();
         });
 
         $("#emailAddress").focusout(function (){
@@ -69,6 +75,21 @@ $(document).ready(function () {
             }
         }
 
+        function checkUserName(){
+            var fullNameLength = $("#userName").val().length;
+
+            var expRegUserName = new RegExp(/^[a-zA-Z0-9]{4,15}$/i);
+
+            if(!(expRegUserName.test($("#userName").val()))){
+                $("#errorUserName").show();
+                errorUserName = true;
+                $("#userName").addClass("is-invalid");
+            }
+            else{
+                $("#errorUserName").hide();
+                $("#userName").removeClass("is-invalid");
+            }
+        }
 
         function checkEmailAddress(){
             var expRegEmail = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
@@ -84,9 +105,9 @@ $(document).ready(function () {
             }
         }
 
-        /*---------------------------------------------------------------------*/
+
         function checkJob(){
-            var expRegJob = new RegExp(/([a-zA-Z]+)/i);
+            var expRegJob = new RegExp(/^[a-zA-Z0-9]{4,20}$/i);
 
             if(!(expRegJob.test($("#job").val()))){
                 $("#errorJob").show();
@@ -98,7 +119,7 @@ $(document).ready(function () {
                 $("#job").removeClass("is-invalid");
             }
         }
-        /*---------------------------------------------------------------------*/
+
 
         function checkPassword(){
             var passwordLength = $("#password").val().length;
@@ -128,10 +149,10 @@ $(document).ready(function () {
             }
         }
 
-        function checkEmailAddressLogin(){
-            var expRegEmail = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+        function checkEmailAddresUserNamesLogin(){
+            var expRegEmailUserName = new RegExp(/^[a-zA-Z0-9]{4,15}$/i);
 
-            if(!(expRegEmail.test($("#emailAddressLogin").val()))){
+            if(!(expRegEmailUserName.test($("#emailAddressLogin").val()))){
                 $("#errorEmailAddressLogin").show();
                 errorEmailAddressLogin = true;
                 $("#emailAddressLogin").addClass("is-invalid");

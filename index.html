@@ -90,8 +90,8 @@
                 <br/>
                 <form name="login" id="loginForm" action="" method="post">
                     <div class="mb-3">
-                        <p class="errorMsg" id="errorEmailAddressLogin">invalid email address </p>
-                        <input type="email" name="email" placeholder="Email Address" id="emailAddressLogin"
+                        <p class="errorMsg" id="errorEmailAddressLogin">invalid email address or userName </p>
+                        <input type="email" name="email" placeholder="Email Address or UserName" id="emailAddressLogin"
                                class="form-control form-control-lg"required>
                     </div>
 
@@ -210,6 +210,12 @@
                     <p class="errorMsg" id="errorFullName">Should be between 5 and 30 characters</p>
                     <input type="text" placeholder="Full Name" id="fullName" class="form-control form-control-lg" required>
                 </div>
+
+                <div class="mb-3 ">
+                    <p class="errorMsg" id="errorUserName">Should be between 5 and 30 characters</p>
+                    <input type="text" placeholder="User Name" id="userName" class="form-control form-control-lg" required>
+                </div>
+
                 <div class="mb-3">
                     <p class="errorMsg" id="errorEmailAddress">invalid email address </p>
                     <input type="email" placeholder="Email Address" id="emailAddress" class="form-control form-control-lg" required>
