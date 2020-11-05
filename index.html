@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="EasyML web site.">
+    <link rel="icon" href="Images/logo.PNG">
     <title>EasyML</title>
-    <link rel="icon" href="http://example.com/favicon.png">
-
 
     <!-- CSS only v5.getbootstrap.com -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
           integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 
     <!-- fonts google -->
@@ -20,54 +21,92 @@
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
     <!-- JavaScript Bundle with Popper.js v5.getbootstrap.com -->
-    <script src="index.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
             integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
             crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 </head>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
+<!--nav-->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">  <!--fixed-top-->
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <img src="Images/logoMenu.PNG" height="32"/>
+    <a class="nav-link" href="index.html">
+        <img src="Images/logoMenu.PNG" height="32"/>
+    </a>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-content-center mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#documentation">Documentation </a>
+                <a class="nav-link menuLink" href="#documentation">Documentation </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#footer">About us</a>
+                <a class="nav-link menuLink" href="#footer">About us</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link " href="#footer">Contact us</a>
+                <a class="nav-link menuLink" href="#footer">Contact us</a>
             </li>
         </ul>
 
         <div class="my-2 my-lg-0">
-            <button class="btn  btn-sm btn-outline-danger my-2 my-sm-0" type="submit">
-                <a class="nav-link signUp scrollLink" href="#signUp">Sign up</a>
+            <button class="btn  btn-sm btn-outline-danger my-2 my-sm-0" type="submit" >
+                <a class="nav-link signUp" href="#signUp" id="signUpButton">Sign up</a>
             </button>
         </div>
     </div>
 </nav>
+<!-- end nav -->
 
 <!-- Hero -->
-<div class="container hero border-bottom">
-    <div class="row align-items-center">
+<div class="container hero border-bottom" >
+    <div class="row "> <!--align-items-center-->
         <div class="col-md-4 col-sm-12 col-lg-4">
-            <div class="text">
-                <h1 class="pt-2 pb-2 mt-2 mb-2 text-center">Use <br/> machine learning <br/> in one click <br/> Start now !
+            <!--hero 1 -->
+            <div class="text" data-aos="fade-right" id="hero1">
+                <h1 class="h1Index pt-2 pb-2 mt-2 mb-2 text-center">Use <br/> machine learning <br/> in one click <br/>
+                    Start now !
                 </h1>
                 <div class="text-center">
-                    <button class="btn btn-primary btn-lg rounded-pill text-center text-center">Login</button>
+                    <button class="btn btn-primary btn-lg rounded-pill text-center" id="login1">Login</button>
                 </div>
             </div>
+            <!--end hero 1-->
+
+            <!--hero2-->
+            <div class="text logIn" data-aos="fade-right" id="hero2">
+                <h1 class="h1Index text-center text-primary">
+                    Login
+                </h1>
+                <br/>
+                <form name="login" id="loginForm" action="" method="post">
+                    <div class="mb-3">
+                        <p class="errorMsg" id="errorEmailAddressLogin">invalid email address </p>
+                        <input type="email" name="email" placeholder="Email Address" id="emailAddressLogin"
+                               class="form-control form-control-lg"required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9 form-group">
+                            <input type="password" name="password" placeholder="Password"
+                                   class="form-control form-control-lg"required>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <button class="btn btn-primary btn-lg " type="submit">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--end hero2-->
         </div>
 
         <div class="col-md-8 col-sm-12 col-lg-8">
@@ -77,9 +116,10 @@
 </div>
 <!-- end hero -->
 
+
 <!-- Features -->
 <div class="container features border-bottom pt-5 pb-3">
-    <h1 class="text-center text-primary">
+    <h1 class="h1Index text-center text-primary">
         Main features / Benefits
     </h1>
     <p class="pr-3 pl-3 text-center text-muted pb-2">It is a long established fact that a reader will be distracted by
@@ -154,55 +194,64 @@
 </div>
 <!-- end features -->
 
+
 <!-- sign up -->
 <div class="container sign-up pt-5 pb-5 border-bottom" id="signUp">
     <h1 class="text-center text-primary">Sign up</h1>
 
-    <div class="row pt-3">
+    <div class="row pt-3" >
         <!-- form -->
 
         <div class="col-md-2 col-sm-12 col-lg-2"></div>
-        <div class="col-md-4 col-sm-12 col-lg-4">
-            <form class="pt-3 mt-3">
+        <div class="col-md-4 col-sm-12 col-lg-4" data-aos="fade-up" >
+            <form class="pt-3 mt-3" name="signUp" id="signUpForm" action="" method="post">
+
                 <div class="mb-3 ">
-                    <input type="text" placeholder="Full Name" class="form-control form-control-lg"/>
+                    <p class="errorMsg" id="errorFullName">Should be between 5 and 30 characters</p>
+                    <input type="text" placeholder="Full Name" id="fullName" class="form-control form-control-lg" required>
                 </div>
                 <div class="mb-3">
-                    <input type="email" placeholder="Email Address" class="form-control form-control-lg"/>
+                    <p class="errorMsg" id="errorEmailAddress">invalid email address </p>
+                    <input type="email" placeholder="Email Address" id="emailAddress" class="form-control form-control-lg" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" placeholder="Job" class="form-control form-control-lg"/>
+                    <p class="errorMsg" id="errorJob">invalid Job</p>
+
+                    <input type="text" placeholder="Job" id="job" class="form-control form-control-lg" required>
                 </div>
 
 
                 <div class="row mb-3 ">
                     <p class="col-sm-3 ">Birthdate : </p>
                     <div class="col-sm-9    ">
-                        <input type="date" id="datapicker" class="form-control form-control-lg"/>
+                        <input type="date" id="datapicker" class="form-control form-control-lg" required>
                     </div>
                 </div>
 
                 <div class="row">
+                    <p class="errorMsg" id="errorGender">This is a required field ! choose one</p>
                     <p class="col-sm-3 ">Gender : </p>
                     <div class="col-sm-3 ">
                         <label class="form-check-label" for="male">
-                            <input type="radio" class="form-check-input" id="male" name="optradio" value="Male">Male
+                            <input type="radio" class="form-check-input" id="male" name="gender" value="Male">Male
                         </label>
                     </div>
                     <div class="col-sm-3">
                         <label class="form-check-label" for="female">
-                            <input type="radio" class="form-check-input" id="female" name="optradio" value="Female">Female
+                            <input type="radio" class="form-check-input" id="female" name="gender" value="Female">Female
                         </label>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="text" placeholder="Password" class="form-control form-control-lg">
+                    <p class="errorMsg" id="errorPassword">At least 8 characters </p>
+                    <input type="password" placeholder="Password" id="password" class="form-control form-control-lg" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" placeholder="Verify Password" class="form-control form-control-lg"/>
+                    <p class="errorMsg" id="errorVerifyPassword">Password don't match</p>
+                    <input type="password" placeholder="Verify Password" id="verifyPassword" class="form-control form-control-lg" required>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-primary btn-lg " type="submit">Sign Up</button>
+                    <button class="btn btn-primary btn-lg" id="buttonSignUp" type="submit">Sign Up</button>
                 </div>
 
             </form>
@@ -217,6 +266,7 @@
 </div>
 <!-- end sign up -->
 
+
 <!-- Documentation -->
 <div class="container pt-5 border-bottom" id="documentation">
     <h1 class="text-center text-primary">Documentation</h1>
@@ -230,10 +280,12 @@
 </div>
 <!-- end Documentation-->
 
+
 <!-- Footer -->
 <div class="container sign-up pt-5 footer border-bottom" id="footer">
     <!-- Logo -->
     <img src="https://storage.moqups.com/repo/AP0UbHE5ve/HUs2CuLXFs.png" height="32">
+
     <div class="row">
         <div class="col-md-5 col-sm-12 col-lg-5">
             <div class="pt-5 about-us">
@@ -259,11 +311,11 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-8 form-group">
+                        <div class="col-sm-9 form-group">
                             <input type="email" name="email" placeholder="Email Address"
                                    class="form-control form-control-lg"/>
                         </div>
-                        <div class="col-sm-4 form-group">
+                        <div class="col-sm-3 form-group">
                             <button class="btn btn-primary btn-lg " type="submit">Send</button>
                         </div>
                     </div>
@@ -271,7 +323,6 @@
                 </form>
             </div>
         </div>
-
 
         <div class="col-md-3 col-sm-12 col-lg-3">
             <div class="pt-5 about-us">
@@ -287,7 +338,7 @@
                 </div>
 
                 <div class="row">
-                    <a class="iconFooter col-sm-1" ><i class="fa fa-youtube-square"></i></a>
+                    <a class="iconFooter col-sm-1"><i class="fa fa-youtube-square"></i></a>
                     <a class="iconFooter col-sm-1"><i class="fa fa-facebook-square"></i></a>
                     <a class="iconFooter col-sm-1"><i class="fa fa-linkedin-square"></i></a>
                     <a class="iconFooter col-sm-1"><i class="fa fa-twitter-square"></i></a>
@@ -295,15 +346,16 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
     <hr>
     <p class="text-muted text-center">&copy; 2020 EasyML. All rights reserved.</p>
 
 </div>
 <!--end of footer-->
+
 </body>
+<script src="index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </html>
