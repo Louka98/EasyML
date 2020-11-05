@@ -97,8 +97,11 @@ class ClassificationModel:
         return self.model.predict(data)
 
 if __name__ == '__main__':
-    train_x, train_y = np.arange(100).reshape(5, 20), np.ones(5)
+    train_x, train_y = np.vstack((np.random.uniform(low=0., high=10., size=(1000,10)),np.random.uniform(low=11., high=20., size=(1000,10)))), np.hstack((np.ones(1000), np.zeros(1000)))
     model = ClassificationModel(layers= 10, neurons= 20, input_shape= (train_x.shape[-1],))
+    print(train_x.shape)
+    print(train_y.shape)
     model.binary()
     hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
-    print(model.predict(np.arange(20).reshape(1,20)))
+    print(model.predict(np.random.uniform(low=0., high=10., size=(2,10))))
+    print(model.predict(np.random.uniform(low=11., high=20., size=(1,10))))
