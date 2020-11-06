@@ -19,7 +19,7 @@ class logistic_regression:
         self.preprocessed_data = preprocessed_data
         self.test_size = test_size
         self.random_state = random_state
-        self.model = LogisticRegression()  
+        self.model = LogisticRegression(solver =self.solver, penalty = self.penalty ,C = self.C)  
 
     @classmethod    
     def train(self):

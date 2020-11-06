@@ -14,7 +14,7 @@ class decision_tree:
      self.test_size = test_size
      self.random_state = random_state
      self.preprocessed_data = preprocessed_data
-     self.model = DecisionTreeClassifier()
+     self.model = DecisionTreeClassifier(criterion = self.criterion, max_depth = self.max_depth)
 
 
     #it is supposed to return the model parameters + accuracy of the model . these two has to be plotted (education aim)
