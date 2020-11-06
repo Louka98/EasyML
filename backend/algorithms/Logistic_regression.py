@@ -32,7 +32,10 @@ class logistic_regression:
         if ((self.solver == " ") | (self.penalty == " ")):
              #remember in preprocessing steps that the Sklearn doesnt accept string data , only numeric
              self.model = self.model.fit(X_train, y_train) 
-             self.predict(X_test, y_test)
+             predicted_classes = self.model.predict(X_test)
+             accuracy = accuracy_score(y_test.flatten(),predicted_classes)  #comparison between real labels and predicted ones
+             return  self.model.coef_ , accuracy  #weights + evaluation
+
         else :
          
             solvers = ['newton-cg', 'lbfgs', 'liblinear']
@@ -52,11 +55,9 @@ class logistic_regression:
                         final_output.append(mean, stdev, param)
             return final_output   
     @classmethod
-    def predict(self, X_test,y_test ):
-        predicted_classes = self.model.predict(X_test)
-        accuracy = accuracy_score(y_test.flatten(),predicted_classes)  #comparison between real labels and predicted ones
-        return  self.model.coef_ , accuracy  #weights + evaluation
-             
+    def predict(self ):
+        pass
+                     
 if __name__ == '__main__':
     pass
 #Add visualization

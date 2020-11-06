@@ -24,12 +24,13 @@ def train(self):
     y = self.preprocessed_data.iloc[:, -1].values  #remember in preprocessing steps that the Sklearn doesnt accept string data , only numeric
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.test_size, random_state=self.random_state)
     self.model = self.model.fit(X_train, y_train)
-    return self.model, X_test, y_test  #trained model / to be tested 
+    y_pred = self.model.predict(X_test)
+    return metrics.accuracy_score(y_test, y_pred)
+     
       
 @classmethod
 def predict(self, X_test, y_test):
-    y_pred = self.model.predict(X_test)
-    return metrics.accuracy_score(y_test, y_pred)
+    pass
 
 
 

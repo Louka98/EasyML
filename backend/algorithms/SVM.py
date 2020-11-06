@@ -25,8 +25,9 @@ class SVM:
     def train(self):
        X = self.preprocessed_data.iloc[:, :-1].values
        y = self.preprocessed_data.iloc[:, -1].values
-       X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20)
+       X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = self.test_size)
        self.model = self.model.fit(X_train, y_train)   # à continuer d'ici
+
 
 
 
