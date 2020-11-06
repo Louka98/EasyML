@@ -29,7 +29,7 @@ def train(self):
      
       
 @classmethod
-def predict(self, X_test, y_test):
+def predict(self):
     pass
 
 

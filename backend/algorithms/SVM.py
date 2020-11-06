@@ -1,3 +1,4 @@
+from backend.algorithms.DecisionTree import predict
 from flask import Flask
 from sklearn.model_selection import train_test_split
 import pandas as pd
@@ -27,17 +28,17 @@ class SVM:
        y = self.preprocessed_data.iloc[:, -1].values
        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = self.test_size)
        self.model = self.model.fit(X_train, y_train)   # à continuer d'ici
-
-
-
-
-
-
-
-
-
-
-       
-       y_pred = svclassifier.predict(X_test)
+       y_pred = self.model.predict(X_test)
        return classification_report(y_test,y_pred) , (confusion_matrix(y_test,y_pred))
+
+
+    @classmethod
+    def predict(self):
+        pass
+
+
+
+
+if __name__ == "__main__":
+    pass
 #Add visualization of output
