@@ -26,7 +26,7 @@ $(document).ready(function () {
             checkFullName();
         });
 
-        $("#userName").focusout(function (){
+        $("#usernameRegister").focusout(function (){
             checkUserName();
         });
 
@@ -38,11 +38,11 @@ $(document).ready(function () {
             checkJob();
         });
 
-        $("#password").focusout(function (){
+        $("#passwordRegister").focusout(function (){
             checkPassword();
         });
 
-        $("#verifyPassword").focusout(function (){
+        $("#verifyPasswordRegister").focusout(function (){
             checkVerifyPassword();
         });
 
@@ -76,18 +76,18 @@ $(document).ready(function () {
         }
 
         function checkUserName(){
-            var fullNameLength = $("#userName").val().length;
+            var fullNameLength = $("#usernameRegister").val().length;
 
             var expRegUserName = new RegExp(/^[a-zA-Z0-9]{4,15}$/i);
 
-            if(!(expRegUserName.test($("#userName").val()))){
+            if(!(expRegUserName.test($("#usernameRegister").val()))){
                 $("#errorUserName").show();
                 errorUserName = true;
-                $("#userName").addClass("is-invalid");
+                $("#usernameRegister").addClass("is-invalid");
             }
             else{
                 $("#errorUserName").hide();
-                $("#userName").removeClass("is-invalid");
+                $("#usernameRegister").removeClass("is-invalid");
             }
         }
 
@@ -122,30 +122,30 @@ $(document).ready(function () {
 
 
         function checkPassword(){
-            var passwordLength = $("#password").val().length;
+            var passwordLength = $("#passwordRegister").val().length;
 
             if(passwordLength<8){
                 $("#errorPassword").show();
                 errorPassword = true;
-                $("#password").addClass("is-invalid");
+                $("#passwordRegister").addClass("is-invalid");
             }
             else{
                 $("#errorPassword").hide();
-                $("#password").removeClass("is-invalid");
+                $("#passwordRegister").removeClass("is-invalid");
             }
         }
         function checkVerifyPassword(){
-            var passwordValue = $("#password").val();
-            var verifyPasswordValue = $("#verifyPassword").val();
+            var passwordValue = $("#passwordRegister").val();
+            var verifyPasswordValue = $("#verifyPasswordRegister").val();
 
             if(passwordValue != verifyPasswordValue){
                 $("#errorVerifyPassword").show();
                 errorVerifyPassword = true;
-                $("#verifyPassword").addClass("is-invalid");
+                $("#verifyPasswordRegister").addClass("is-invalid");
             }
             else{
                 $("#errorVerifyPassword").hide();
-                $("#verifyPassword").removeClass("is-invalid");
+                $("#verifyPasswordRegister").removeClass("is-invalid");
             }
         }
 
@@ -222,3 +222,47 @@ $(document).ready(function () {
 AOS.init({
     duration: 2500,
 })
+
+$(function(){
+    $('#loginForm').submit(function() {
+        var settings = {
+            "url": "http://127.0.0.1:5000/login",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+            "Authorization": "Basic " + btoa(document.getElementById("usernameLogin").value+":"+document.getElementById("passwordLogin").value)
+            },
+        };
+        
+        $.ajax(settings).done(function (response) {
+            localStorage.setItem("token",response.token)
+            window.location.href = "algorithms.html"
+        });
+
+        event.preventDefault();
+    });
+
+    $('#signUpForm').submit(function() {
+
+        if($("#verifyPasswordRegister")[0].classList[2]=="is-invalid" || $("#passwordRegister")[0].classList[2]=="is-invalid" || $("#usernameRegister")[0].classList[2]=="is-invalid") {
+            event.preventDefault();
+            return
+        }
+
+        var settings = {
+            "url": "http://127.0.0.1:5000/register",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+            "Authorization": "Basic " + btoa(document.getElementById("usernameRegister").value+":"+document.getElementById("passwordRegister").value)
+            },
+        };
+        
+        $.ajax(settings).done(function (response) {
+            localStorage.setItem("token",response.token)
+            window.location.href = "algorithms.html"
+        });
+
+        event.preventDefault();
+    });
+});

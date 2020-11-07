@@ -3,6 +3,7 @@ from logging import error, exception
 from flask import Flask, request, jsonify, make_response
 from flask_api import status
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
@@ -11,7 +12,7 @@ from functools import wraps
 from sqlalchemy_utils import database_exists
 
 app = Flask(__name__)
-
+CORS(app)
 app.config['SECRET_KEY'] = 'asdfdgd123'  #to use token encoding
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ezml.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -85,7 +86,6 @@ def register():
 
     #generate token from public_id, and adding a expire time for the token
     token = jwt.encode({'public_id': new_user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = TOKEN_EXP_MIN)}, app.config['SECRET_KEY'])
-
     return jsonify({'token':token.decode('UTF-8')})
     
 
@@ -105,8 +105,7 @@ def login():
     if check_password_hash(user.password, auth.password):
         #generate token from public_id, and adding a expire time for the token
         token = jwt.encode({'public_id': user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = TOKEN_EXP_MIN)}, app.config['SECRET_KEY'])
-
-        return jsonify({'token':token.decode('UTF-8')})
+        return jsonify({'token':token.decode('UTF-8')}),status.HTTP_200_OK
     
     return jsonify({'message' : 'Cold not verify'}),status.HTTP_401_UNAUTHORIZED
 
