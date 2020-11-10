@@ -4,17 +4,14 @@ $(document).ready(function () {
         $("#errorFullName").hide();
         $("#errorUserName").hide();
         $("#errorEmailAddress").hide();
-        $("#errorJob").hide();
         $("#errorGender").hide();
         $("#errorPassword").hide();
         $("#errorVerifyPassword").hide();
-
         $("#errorEmailAddressLogin").hide();
 
         var errorFullName = false;
         var errorUserName = false;
         var errorEmailAddress = false;
-        var errorJob = false;
         var errorGender = false;
         var errorPassword = false;
         var errorVerifyPassword = false;
@@ -164,6 +161,19 @@ $(document).ready(function () {
         }
     });
 
+    function checkEmailAddressLogin(){
+        var expRegEmail = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+
+        if(!(expRegEmail.test($("#emailAddressLogin").val()))){
+            $("#errorEmailAddressLogin").show();
+            errorEmailAddress = true;
+            $("#emailAddressLogin").addClass("is-invalid");
+        }
+        else{
+            $("#errorEmailAddressLogin").hide();
+            $("#emailAddressLogin").removeClass("is-invalid");
+        }
+    }
 
     //nav function -----------------------------------------------------------------------------------------------------
 
@@ -203,7 +213,7 @@ $(document).ready(function () {
     });
 
     //check login input function
- //   $("p").hide();
+    //   $("p").hide();
     /*
     * $("button").click(function(){
     $("p").hide(1000);
@@ -230,10 +240,10 @@ $(function(){
             "method": "GET",
             "timeout": 0,
             "headers": {
-            "Authorization": "Basic " + btoa(document.getElementById("usernameLogin").value+":"+document.getElementById("passwordLogin").value)
+                "Authorization": "Basic " + btoa(document.getElementById("usernameLogin").value+":"+document.getElementById("passwordLogin").value)
             },
         };
-        
+
         $.ajax(settings).done(function (response) {
             localStorage.setItem("token",response.token)
             window.location.href = "algorithms.html"
@@ -254,10 +264,10 @@ $(function(){
             "method": "GET",
             "timeout": 0,
             "headers": {
-            "Authorization": "Basic " + btoa(document.getElementById("usernameRegister").value+":"+document.getElementById("passwordRegister").value)
+                "Authorization": "Basic " + btoa(document.getElementById("usernameRegister").value+":"+document.getElementById("passwordRegister").value)
             },
         };
-        
+
         $.ajax(settings).done(function (response) {
             localStorage.setItem("token",response.token)
             window.location.href = "algorithms.html"
