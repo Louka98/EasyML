@@ -19,7 +19,23 @@ def Kmeans(data):
     data['Labels'] = kmeans.labels_ #Result
     return data
 
-                    
+def ClusteringModel():
+    model: None
+
+    def Dbs(eps, minsamp):
+        model = DBSCAN(eps=0.3,min_samples=10)
+
+    #
+    #
+    #
+    def train(data):
+        model.fit(data)
+        data['Labels'] = model.labels_     #Result
+        return data
+
+    def predict(data):
+        pass
+
 #DBSCAN
 def Dbscan(data):
     db=DBSCAN(eps=0.3,min_samples=10) #creating model
