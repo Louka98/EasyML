@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -15,8 +16,9 @@
     <link rel="stylesheet" href="index.css">
 
     <!-- fonts google -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-          rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
 
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,7 +37,8 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <!--nav-->
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">  <!--fixed-top-->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <!--fixed-top-->
 
     <a class="nav-link" href="index.html">
         <img src="Images/logoMenu.PNG" height="32"/>
@@ -59,7 +62,7 @@
         </ul>
 
         <div class="my-2 my-lg-0">
-            <button class="btn  btn-sm btn-outline-danger my-2 my-sm-0" type="submit" >
+            <button class="btn  btn-sm btn-outline-danger my-2 my-sm-0" type="submit">
                 <a class="nav-link signUp" href="#signUp" id="signUpButton">Sign up</a>
             </button>
         </div>
@@ -68,12 +71,14 @@
 <!-- end nav -->
 
 <!-- Hero -->
-<div class="container hero border-bottom" >
-    <div class="row "> <!--align-items-center-->
+<div class="container hero border-bottom">
+    <div class="row ">
+        <!--align-items-center-->
         <div class="col-md-4 col-sm-12 col-lg-4">
             <!--hero 1 -->
             <div class="text" data-aos="fade-right" id="hero1">
-                <h1 class="h1Index pt-2 pb-2 mt-2 mb-2 text-center">Use <br/> machine learning <br/> in one click <br/>
+                <h1 class="h1Index pt-2 pb-2 mt-2 mb-2 text-center">Use <br/> machine learning <br/> in one click
+                    <br/>
                     Start now !
                 </h1>
                 <div class="text-center">
@@ -90,18 +95,17 @@
                 <br/>
                 <form name="login" id="loginForm" action="" method="post">
                     <div class="mb-3">
-                        <p class="errorMsg" id="errorEmailAddressLogin">invalid email address or userName </p>
-                        <input type="email" name="email" placeholder="Email Address or UserName" id="emailAddressLogin"
-                               class="form-control form-control-lg"required>
+                        <input type="text" name="username" placeholder="Username" id="usernameLogin"
+                               class="form-control form-control-lg" required>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-9 form-group">
-                            <input type="password" name="password" placeholder="Password"
-                                   class="form-control form-control-lg"required>
+                            <input type="password" name="password" placeholder="Password" id="passwordLogin"
+                                   class="form-control form-control-lg" required>
                         </div>
                         <div class="col-sm-3 form-group">
-                            <button class="btn btn-primary btn-lg " type="submit">Login</button>
+                            <button class="btn btn-primary btn-lg " type="submit" id="loginButton">Login</button>
                         </div>
                     </div>
                 </form>
@@ -122,9 +126,11 @@
     <h1 class="h1Index text-center text-primary">
         Main features / Benefits
     </h1>
-    <p class="pr-3 pl-3 text-center text-muted pb-2">It is a long established fact that a reader will be distracted by
+    <p class="pr-3 pl-3 text-center text-muted pb-2">It is a long established fact that a reader will be distracted
+        by
         the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-        more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look
+        more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
+        look
         like readable English.</p>
 
     <div class="container pt-4">
@@ -135,11 +141,13 @@
                         <!-- check icon -->
                         <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
                              xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-								<path d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
-                                      fill="#293C7D"/>
-                            <path d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
-                                  fill="#4899D2"/>
-							</svg>
+                                <path
+                                        d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
+                                        fill="#293C7D"/>
+                            <path
+                                    d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
+                                    fill="#4899D2"/>
+                            </svg>
                     </div>
                     <div class="col-6">
                         <h2 class="text-danger">No code</h2>
@@ -155,11 +163,13 @@
                         <!-- check icon -->
                         <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
                              xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-								<path d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
-                                      fill="#293C7D"/>
-                            <path d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
-                                  fill="#4899D2"/>
-							</svg>
+                                <path
+                                        d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
+                                        fill="#293C7D"/>
+                            <path
+                                    d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
+                                    fill="#4899D2"/>
+                            </svg>
                     </div>
                     <div class="col-6">
                         <h2 class="text-danger">Easy to use</h2>
@@ -175,11 +185,13 @@
                         <!-- check icon -->
                         <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
                              xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-								<path d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
-                                      fill="#293C7D"/>
-                            <path d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
-                                  fill="#4899D2"/>
-							</svg>
+                                <path
+                                        d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
+                                        fill="#293C7D"/>
+                            <path
+                                    d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
+                                    fill="#4899D2"/>
+                            </svg>
                     </div>
                     <div class="col-6">
                         <h2 class="text-danger">Earn time</h2>
@@ -199,33 +211,36 @@
 <div class="container sign-up pt-5 pb-5 border-bottom" id="signUp">
     <h1 class="text-center text-primary">Sign up</h1>
 
-    <div class="row pt-3" >
+    <div class="row pt-3">
         <!-- form -->
 
         <div class="col-md-2 col-sm-12 col-lg-2"></div>
-        <div class="col-md-4 col-sm-12 col-lg-4" data-aos="fade-up" >
-            <form class="pt-3 mt-3" name="signUp" id="signUpForm" action="" method="post">
+        <div class="col-md-4 col-sm-12 col-lg-4" data-aos="fade-up">
 
+
+            <form class="pt-3 mt-3" name="signUp" id="signUpForm" action="" method="post">
                 <div class="mb-3 ">
                     <p class="errorMsg" id="errorFullName">Should be between 5 and 30 characters</p>
-                    <input type="text" placeholder="Full Name" id="fullName" class="form-control form-control-lg" required>
+                    <input type="text" placeholder="Full Name" id="fullName" class="form-control form-control-lg"
+                           required>
                 </div>
-
                 <div class="mb-3 ">
-                    <p class="errorMsg" id="errorUserName">Should be between 5 and 30 characters</p>
-                    <input type="text" placeholder="User Name" id="userName" class="form-control form-control-lg" required>
+                    <p class="errorMsg" id="errorUserName">Should be between 4 and 15 characters</p>
+                    <input type="text" placeholder="Username" id="usernameRegister" class="form-control form-control-lg"
+                           required>
                 </div>
 
-                <div class="mb-3">
-                    <p class="errorMsg" id="errorEmailAddress">invalid email address </p>
-                    <input type="email" placeholder="Email Address" id="emailAddress" class="form-control form-control-lg" required>
+                <div class=" mb-3 form-group">
+                    <select class="browser-default custom-select form-control">
+                        <option value="phd" selected>PhD</option>
+                        <option value="edd">EdD</option>
+                        <option value="m2">Msc 2</option>
+                        <option value="m1">Msc 1</option>
+                        <option value="b3">Bsc 3</option>
+                        <option value="b2">Bsc 2</option>
+                        <option value="b1">Bsc 1</option>
+                    </select>
                 </div>
-                <div class="mb-3">
-                    <p class="errorMsg" id="errorJob">invalid Job</p>
-
-                    <input type="text" placeholder="Job" id="job" class="form-control form-control-lg" required>
-                </div>
-
 
                 <div class="row mb-3 ">
                     <p class="col-sm-3 ">Birthdate : </p>
@@ -239,7 +254,7 @@
                     <p class="col-sm-3 ">Gender : </p>
                     <div class="col-sm-3 ">
                         <label class="form-check-label" for="male">
-                            <input type="radio" class="form-check-input" id="male" name="gender" value="Male">Male
+                            <input type="radio" class="form-check-input" id="male" name="gender" value="Male" checked>Male
                         </label>
                     </div>
                     <div class="col-sm-3">
@@ -248,13 +263,17 @@
                         </label>
                     </div>
                 </div>
+
                 <div class="mb-3">
                     <p class="errorMsg" id="errorPassword">At least 8 characters </p>
-                    <input type="password" placeholder="Password" id="password" class="form-control form-control-lg" required>
+                    <input type="password" placeholder="Password" id="passwordRegister"
+                           class="form-control form-control-lg"
+                           required>
                 </div>
                 <div class="mb-3">
-                    <p class="errorMsg" id="errorVerifyPassword">Password don't match</p>
-                    <input type="password" placeholder="Verify Password" id="verifyPassword" class="form-control form-control-lg" required>
+                    <p class="errorMsg" id="errorVerifyPassword">Passwords don't match</p>
+                    <input type="password" placeholder="Confirm Password" id="verifyPasswordRegister"
+                           class="form-control form-control-lg" required>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary btn-lg" id="buttonSignUp" type="submit">Sign Up</button>
@@ -276,11 +295,15 @@
 <!-- Documentation -->
 <div class="container pt-5 border-bottom" id="documentation">
     <h1 class="text-center text-primary">Documentation</h1>
-    <p class="pr-3 pl-3 text-center text-muted pb-4 pt-5">It is a long established fact that a reader will be distracted
-        by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-        more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look
+    <p class="pr-3 pl-3 text-center text-muted pb-4 pt-5">It is a long established fact that a reader will be
+        distracted
+        by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
+        a
+        more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
+        look
         like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-        default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
+        default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+        Various
         versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the
         like).</p>
 </div>
@@ -300,9 +323,11 @@
                     It is a long established fact that a reader will be distracted by the readable content of a page
                     when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
                     distribution of letters, as opposed to using 'Content here, content here', making it look like
-                    readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+                    readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
+                    their
                     default model text, and a search for 'lorem ipsum' will uncover many web sites still in their
-                    infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
+                    infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
+                    purpose
                     (injected humour and the like).
                 </p>
             </div>
