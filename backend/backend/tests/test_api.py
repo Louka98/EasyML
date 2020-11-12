@@ -135,7 +135,7 @@ def test_train():
     response = login()
     data = json.loads(response.get_data(as_text=True))
 
-    payload = "{\r\n    \"model_type\" : \"nn_binary_classification\",\r\n    \"dataset\": [\r\n        [\r\n            [1,1,1,1],\r\n            [1,0,1,1],\r\n            [0,1,1,1],\r\n            [0,0,0,0]\r\n        ],\r\n        [1,1,1,0]],\r\n    \"layers\" : 5,\r\n    \"neurons\" : 20\r\n}"
+    payload = "{\"model_type\" : \"nn_binary_classification\",\"dataset\": [[[1,1,1,1],[1,0,1,1],[0,1,1,1],[0,0,0,0]],[1,1,1,0]],\"layers\" : 5,\"neurons\" : 20}"
     response = app.test_client().post(
         '/model/train',
         content_type='application/json', headers={"x-access-token": data['token']}, data = payload
