@@ -8,6 +8,7 @@ import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
+import numpy as np 
 from functools import wraps
 from sqlalchemy_utils import database_exists
 
@@ -18,6 +19,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ezml.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  #database
+model = None
 
 TOKEN_EXP_MIN = 30
 
@@ -200,6 +202,26 @@ def delete_user(current_user, public_id:str):
     db.session.commit()
 
     return jsonify(success = True)
+
+@app.route('/model/predict', methods = ['POST'])
+@token_required
+
+def predict(current_user):
+    global model
+    data = request.get_json()
+    data = data['data']
+    prediction  = model.predict(data)
+    return prediction
+    
+
+
+
+
+    
+
+
+
+
 
 if __name__ == '__main__':
 
