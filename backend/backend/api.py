@@ -203,6 +203,7 @@ def delete_user(current_user, public_id:str):
 
     return jsonify(success = True)
 
+
 @app.route('/model/predict', methods = ['POST'])
 @token_required
 
@@ -213,13 +214,6 @@ def predict(current_user):
     prediction  = model.predict(data)
     return prediction
     
-
-
-
-
-    
-
-
 
 
 
