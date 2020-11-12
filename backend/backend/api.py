@@ -1,3 +1,5 @@
+from tensorflow.keras import layers
+from backend.neural_networks import *
 from datetime import date
 from logging import error, exception
 from flask import Flask, request, jsonify, make_response
@@ -10,6 +12,7 @@ import jwt
 import datetime
 from functools import wraps
 from sqlalchemy_utils import database_exists
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)
@@ -19,6 +22,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  #database
 
+model = None
 TOKEN_EXP_MIN = 30
 
 class User(db.Model):
@@ -109,6 +113,27 @@ def login():
     
     return jsonify({'message' : 'Cold not verify'}),status.HTTP_401_UNAUTHORIZED
 
+
+@app.route('/model/train', methods = ['POST'])
+@token_required
+def train(current_user):
+    '''trains a model'''
+    
+    global model
+    data = request.get_json()
+    dataset = data['dataset']
+    
+    #TODO better conversion in preprocess data -> create preprocess_data function
+    train_x = np.array(dataset[0])
+    train_y = np.array(dataset[1])
+    
+    if data['model_type'] == 'nn_binary_classification':
+        model = ClassificationModel(layers= data['layers'], neurons= data['neurons'], input_shape= (train_x.shape[-1],))
+        model.create_template(type = ModelTypes.binary)
+        hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
+        print(hist.history)
+        
+        return jsonify({'loss': hist.history['loss']})
 
 
 @app.route('/user', methods = ['GET'])
