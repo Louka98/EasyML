@@ -123,12 +123,15 @@ def train(current_user):
     
     global model
     data = request.get_json()
+    print(data)
     dataset = data['dataset']
-    
+    dataset = [x for x in dataset if x != [""]]
+    print(dataset)
     #TODO better conversion in preprocess data -> create preprocess_data function
-    train_x = np.array(dataset[0])
-    train_y = np.array(dataset[1])
-    
+    train_x = np.array(dataset[1:][:-1],dtype = np.float32)
+    train_y = np.array([1,0,1,0,0])
+    print(train_x)
+    print(train_y)
     if data['model_type'] == 'nn_binary_classification':
         model = ClassificationModel(layers= data['layers'], neurons= data['neurons'], input_shape= (train_x.shape[-1],))
         model.create_template(type = ModelTypes.binary)
