@@ -129,3 +129,18 @@ def test_get_user_not_admin():
     content_type='application/json', headers={"x-access-token": data['token']})
     assert response.status_code == 401
     clean_up()
+
+def test_train():
+    init()
+    response = login()
+    data = json.loads(response.get_data(as_text=True))
+
+    payload = "{\"model_type\" : \"nn_binary_classification\",\"dataset\": [[[1,1,1,1],[1,0,1,1],[0,1,1,1],[0,0,0,0]],[1,1,1,0]],\"layers\" : 5,\"neurons\" : 20}"
+    response = app.test_client().post(
+        '/model/train',
+        content_type='application/json', headers={"x-access-token": data['token']}, data = payload
+    )
+    assert response.status_code == 200
+    data = json.loads(response.get_data(as_text=True))
+    assert len(data['loss']) !=0
+    clean_up()

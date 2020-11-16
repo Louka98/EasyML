@@ -233,6 +233,7 @@ AOS.init({
     duration: 2500,
 })
 
+
 $(function(){
     $('#loginForm').submit(function() {
         var settings = {
@@ -276,3 +277,37 @@ $(function(){
         event.preventDefault();
     });
 });
+
+// input change -> send the csv converte to json to the server
+document.getElementById('inputfile').addEventListener('change', function () {
+
+    var fr = new FileReader();
+    fr.onload = function () {
+        document.getElementById('output')
+            .textContent = fr.result;
+        var lines = fr.result.replace(/\r\n/g, "\n").split("\n")
+        for (let index = 0; index < lines.length; index++) {
+            lines[index] = lines[index].split(";")
+        }
+        JSON.stringify(lines)
+        var data = JSON.stringify({ "model_type": "nn_binary_classification", "dataset": lines, "layers": 5, "neurons": 20 })
+        
+        var settings = {
+            "url": "http://127.0.0.1:5000/model/train",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+              "x-access-token": localStorage.token,
+              "Content-Type": "application/json"
+            },
+            "data": data,
+          };
+
+          $.ajax(settings).done(function (response) {
+            console.log(response);
+          });
+
+    }
+
+    fr.readAsText(this.files[0]);
+}) 

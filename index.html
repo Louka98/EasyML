@@ -11,31 +11,35 @@
 
     <!-- CSS only v5.getbootstrap.com -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
-          integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 
     <!-- fonts google -->
     <link
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-            rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JavaScript Bundle with Popper.js v5.getbootstrap.com -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
-            integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
-            crossorigin="anonymous"></script>
+        integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+    <!-- import the sc for csv to json -->
+    <script src="jquery-csv.js"></script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
+<<<<<<< HEAD
 <!--nav-->
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
     <!--fixed-top-->
@@ -99,122 +103,221 @@
                         <input type="email" name="addressMailLogin" placeholder="Address mail" id="emailAddressLogin"
                                class="form-control form-control-lg" required>
                     </div>
+=======
+    <!--nav-->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <!--fixed-top-->
 
+        <a class="nav-link" href="index.html">
+            <img src="Images/logoMenu.PNG" height="32" />
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-center mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link menuLink" href="#documentation">Documentation </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link menuLink" href="#footer">About us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link menuLink" href="#footer">Contact us</a>
+                </li>
+            </ul>
+
+            <div class="my-2 my-lg-0">
+                <button class="btn  btn-sm btn-outline-danger my-2 my-sm-0" type="submit">
+                    <a class="nav-link signUp" href="#signUp" id="signUpButton">Sign up</a>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- end nav -->
+>>>>>>> 05084c45d20da704cc07dacfce81f3c97e776a4f
+
+    <!-- Hero -->
+    <div class="container hero border-bottom">
+        <div class="row ">
+            <!--align-items-center-->
+            <div class="col-md-4 col-sm-12 col-lg-4">
+                <!--hero 1 -->
+                <div class="text" data-aos="fade-right" id="hero1">
+                    <h1 class="h1Index pt-2 pb-2 mt-2 mb-2 text-center">Use <br /> machine learning <br /> in one click
+                        <br />
+                        Start now !
+                    </h1>
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-lg rounded-pill text-center" id="login1">Login</button>
+                    </div>
+                </div>
+                <!--end hero 1-->
+
+                <!--hero2-->
+                <div class="text logIn" data-aos="fade-right" id="hero2">
+                    <h1 class="h1Index text-center text-primary">
+                        Login
+                    </h1>
+                    <br />
+                    <form name="login" id="loginForm" action="" method="post">
+                        <div class="mb-3">
+                            <input type="text" name="username" placeholder="Username" id="usernameLogin"
+                                class="form-control form-control-lg" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-9 form-group">
+                                <input type="password" name="password" placeholder="Password" id="passwordLogin"
+                                    class="form-control form-control-lg" required>
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <button class="btn btn-primary btn-lg " type="submit" id="loginButton">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--end hero2-->
+            </div>
+
+            <div class="col-md-8 col-sm-12 col-lg-8">
+                <img src="https://storage.moqups.com/repo/AP0UbHE5ve/MuGZS3u9MB.jpg" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+    <!-- end hero -->
+
+    <!-- Data upload -->
+
+    <input type="file" name="inputfile" id="inputfile">
+
+    <pre id="output"></pre>
+
+    <!-- <script type="text/javascript">
+        document.getElementById('inputfile').addEventListener('change', function () {
+
+            var fr = new FileReader();
+            fr.onload = function () {
+                document.getElementById('output')
+                    .textContent = fr.result;
+                var lines = fr.result.replace(/\r\n/g, "\n").split("\n")
+                for (let index = 0; index < lines.length; index++) {
+                    lines[index] = lines[index].split(";")
+                }
+                JSON.stringify(lines)
+
+                console.log(JSON.stringify({ "model_type": "nn_binary_classification", "dataset": lines, "layers": 5, "neurons": 20 }))
+
+            }
+
+            fr.readAsText(this.files[0]);
+        })  -->
+    </script>
+
+    <!-- end Data upload -->
+
+    <!-- Features -->
+    <div class="container features border-bottom pt-5 pb-3">
+        <h1 class="h1Index text-center text-primary">
+            Main features / Benefits
+        </h1>
+        <p class="pr-3 pl-3 text-center text-muted pb-2">It is a long established fact that a reader will be distracted
+            by
+            the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+            more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
+            look
+            like readable English.</p>
+
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-lg-4">
                     <div class="row">
-                        <div class="col-sm-9 form-group">
-                            <input type="password" name="password" placeholder="Password" id="passwordLogin"
-                                   class="form-control form-control-lg" required>
-                        </div>
-                        <div class="col-sm-3 form-group">
-                            <button class="btn btn-primary btn-lg " type="submit" id="loginButton">Login</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!--end hero2-->
-        </div>
-
-        <div class="col-md-8 col-sm-12 col-lg-8">
-            <img src="https://storage.moqups.com/repo/AP0UbHE5ve/MuGZS3u9MB.jpg" class="img-fluid"/>
-        </div>
-    </div>
-</div>
-<!-- end hero -->
-
-
-<!-- Features -->
-<div class="container features border-bottom pt-5 pb-3">
-    <h1 class="h1Index text-center text-primary">
-        Main features / Benefits
-    </h1>
-    <p class="pr-3 pl-3 text-center text-muted pb-2">It is a long established fact that a reader will be distracted
-        by
-        the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-        more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
-        look
-        like readable English.</p>
-
-    <div class="container pt-4">
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-lg-4">
-                <div class="row">
-                    <div class="col-6 text-center">
-                        <!-- check icon -->
-                        <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
-                             xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                        <div class="col-6 text-center">
+                            <!-- check icon -->
+                            <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
+                                xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                        d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
-                                        fill="#293C7D"/>
-                            <path
+                                    d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
+                                    fill="#293C7D" />
+                                <path
                                     d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
-                                    fill="#4899D2"/>
+                                    fill="#4899D2" />
                             </svg>
-                    </div>
-                    <div class="col-6">
-                        <h2 class="text-danger">No code</h2>
-                        <p class="text-muted">
-                            You are able to data analysis without a single line of code.
-                        </p>
+                        </div>
+                        <div class="col-6">
+                            <h2 class="text-danger">No code</h2>
+                            <p class="text-muted">
+                                You are able to data analysis without a single line of code.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-lg-4">
-                <div class="row">
-                    <div class="col-6 text-center">
-                        <!-- check icon -->
-                        <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
-                             xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <!-- check icon -->
+                            <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
+                                xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                        d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
-                                        fill="#293C7D"/>
-                            <path
+                                    d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
+                                    fill="#293C7D" />
+                                <path
                                     d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
-                                    fill="#4899D2"/>
+                                    fill="#4899D2" />
                             </svg>
-                    </div>
-                    <div class="col-6">
-                        <h2 class="text-danger">Easy to use</h2>
-                        <p class="text-muted">
-                            Just upload data, choose which ML algorithm you want apply and that's it.
-                        </p>
+                        </div>
+                        <div class="col-6">
+                            <h2 class="text-danger">Easy to use</h2>
+                            <p class="text-muted">
+                                Just upload data, choose which ML algorithm you want apply and that's it.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-lg-4">
-                <div class="row">
-                    <div class="col-6 text-center">
-                        <!-- check icon -->
-                        <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
-                             xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <!-- check icon -->
+                            <svg height="84" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512"
+                                xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                        d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
-                                        fill="#293C7D"/>
-                            <path
+                                    d="m256 512c-141.39 0-256-114.61-256-256s114.61-256 256-256 256 114.61 256 256c-0.139 141.33-114.67 255.86-256 256zm0-468.68c-117.46 0.076-212.63 95.345-212.55 212.81s95.344 212.63 212.81 212.55c117.41-0.076 212.55-95.269 212.55-212.68-0.14-117.45-95.358-212.6-212.81-212.68z"
+                                    fill="#293C7D" />
+                                <path
                                     d="m216.23 334.41c-5.801-0.089-11.324-2.508-15.327-6.714l-54.468-56.748c-7.866-9.006-6.942-22.699 2.065-30.565 8.398-7.334 20.977-7.094 29.096 0.545l38.634 41.041 103.87-102.6c8.069-8.842 21.762-9.462 30.603-1.393s9.462 21.762 1.393 30.603c-0.507 0.557-1.039 1.077-1.596 1.583l-119.32 118.06c-3.99 3.914-9.349 6.13-14.947 6.194z"
-                                    fill="#4899D2"/>
+                                    fill="#4899D2" />
                             </svg>
-                    </div>
-                    <div class="col-6">
-                        <h2 class="text-danger">Earn time</h2>
-                        <p class="text-muted">
-                            Save your time by not learning, writing programs.
-                        </p>
+                        </div>
+                        <div class="col-6">
+                            <h2 class="text-danger">Earn time</h2>
+                            <p class="text-muted">
+                                Save your time by not learning, writing programs.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- end features -->
+    <!-- end features -->
 
 
+<<<<<<< HEAD
 <!-- sign up -->
 <div class="container sign-up pt-5 pb-5 border-bottom" id="signUp">
 
+=======
+    <!-- sign up -->
+    <div class="container sign-up pt-5 pb-5 border-bottom" id="signUp">
+        <h1 class="text-center text-primary">Sign up</h1>
+>>>>>>> 05084c45d20da704cc07dacfce81f3c97e776a4f
 
-    <div class="row pt-3">
-        <!-- form -->
+        <div class="row pt-3">
+            <!-- form -->
 
+<<<<<<< HEAD
         <div class="col-md-2 col-sm-12 col-lg-2"></div>
         <div class="col-md-4 col-sm-12 col-lg-4" data-aos="fade-up">
             <h1 class="text-center text-primary">Sign up</h1>
@@ -249,22 +352,24 @@
                     <p class="col-sm-3 ">Birthdate : </p>
                     <div class="col-sm-9    ">
                         <input type="date" id="datapicker" class="form-control form-control-lg" required>
-                    </div>
-                </div>
+=======
+            <div class="col-md-2 col-sm-12 col-lg-2"></div>
+            <div class="col-md-4 col-sm-12 col-lg-4" data-aos="fade-up">
 
-                <div class="row">
-                    <p class="errorMsg" id="errorGender">This is a required field ! choose one</p>
-                    <p class="col-sm-3 ">Gender : </p>
-                    <div class="col-sm-3 ">
-                        <label class="form-check-label" for="male">
-                            <input type="radio" class="form-check-input" id="male" name="gender" value="Male" checked>Male
-                        </label>
+
+                <form class="pt-3 mt-3" name="signUp" id="signUpForm" action="" method="post">
+                    <div class="mb-3 ">
+                        <p class="errorMsg" id="errorFullName">Should be between 5 and 30 characters</p>
+                        <input type="text" placeholder="Full Name" id="fullName" class="form-control form-control-lg"
+                            required>
+>>>>>>> 05084c45d20da704cc07dacfce81f3c97e776a4f
                     </div>
-                    <div class="col-sm-3">
-                        <label class="form-check-label" for="female">
-                            <input type="radio" class="form-check-input" id="female" name="gender" value="Female">Female
-                        </label>
+                    <div class="mb-3 ">
+                        <p class="errorMsg" id="errorUserName">Should be between 4 and 15 characters</p>
+                        <input type="text" placeholder="Username" id="usernameRegister"
+                            class="form-control form-control-lg" required>
                     </div>
+<<<<<<< HEAD
 
                 </div>
 
@@ -286,107 +391,163 @@
             </form>
         </div>
         <!-- end form -->
+=======
+>>>>>>> 05084c45d20da704cc07dacfce81f3c97e776a4f
 
-        <div class="col-md-6 col-sm-12 col-lg-6">
-            <img src="https://storage.moqups.com/repo/AP0UbHE5ve/8GEUcXKGRI.jpg" class="img-fluid" width="85%"
-                 height="100%"/>
-        </div>
-    </div>
-</div>
-<!-- end sign up -->
+                    <div class=" mb-3 form-group">
+                        <select class="browser-default custom-select form-control">
+                            <option value="phd" selected>PhD</option>
+                            <option value="edd">EdD</option>
+                            <option value="m2">Msc 2</option>
+                            <option value="m1">Msc 1</option>
+                            <option value="b3">Bsc 3</option>
+                            <option value="b2">Bsc 2</option>
+                            <option value="b1">Bsc 1</option>
+                        </select>
+                    </div>
 
-
-<!-- Documentation -->
-<div class="container pt-5 border-bottom" id="documentation">
-    <h1 class="text-center text-primary">Documentation</h1>
-    <p class="pr-3 pl-3 text-center text-muted pb-4 pt-5">It is a long established fact that a reader will be
-        distracted
-        by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
-        a
-        more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
-        look
-        like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-        default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
-        Various
-        versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the
-        like).</p>
-</div>
-<!-- end Documentation-->
-
-
-<!-- Footer -->
-<div class="container sign-up pt-5 footer border-bottom" id="footer">
-    <!-- Logo -->
-    <img src="https://storage.moqups.com/repo/AP0UbHE5ve/HUs2CuLXFs.png" height="32">
-
-    <div class="row">
-        <div class="col-md-5 col-sm-12 col-lg-5">
-            <div class="pt-5 about-us">
-                <h1 class="text-primary">About Us</h1>
-                <p class="text-muted" style="text-align: justify;">
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look like
-                    readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-                    their
-                    default model text, and a search for 'lorem ipsum' will uncover many web sites still in their
-                    infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
-                    purpose
-                    (injected humour and the like).
-                </p>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-12 col-lg-4">
-            <div class="pt-5 about-us">
-                <h1 class="text-primary">Get in touch</h1>
-                <form>
-                    <div class="mb-3">
-                        <textarea placeholder="Type here" class="form-control-lg form-control" rows="3"></textarea>
+                    <div class="row mb-3 ">
+                        <p class="col-sm-3 ">Birthdate : </p>
+                        <div class="col-sm-9    ">
+                            <input type="date" id="datapicker" class="form-control form-control-lg" required>
+                        </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-9 form-group">
-                            <input type="email" name="email" placeholder="Email Address"
-                                   class="form-control form-control-lg"/>
+                        <p class="errorMsg" id="errorGender">This is a required field ! choose one</p>
+                        <p class="col-sm-3 ">Gender : </p>
+                        <div class="col-sm-3 ">
+                            <label class="form-check-label" for="male">
+                                <input type="radio" class="form-check-input" id="male" name="gender" value="Male"
+                                    checked>Male
+                            </label>
                         </div>
-                        <div class="col-sm-3 form-group">
-                            <button class="btn btn-primary btn-lg " type="submit">Send</button>
+                        <div class="col-sm-3">
+                            <label class="form-check-label" for="female">
+                                <input type="radio" class="form-check-input" id="female" name="gender"
+                                    value="Female">Female
+                            </label>
                         </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <p class="errorMsg" id="errorPassword">At least 8 characters </p>
+                        <input type="password" placeholder="Password" id="passwordRegister"
+                            class="form-control form-control-lg" required>
+                    </div>
+                    <div class="mb-3">
+                        <p class="errorMsg" id="errorVerifyPassword">Passwords don't match</p>
+                        <input type="password" placeholder="Confirm Password" id="verifyPasswordRegister"
+                            class="form-control form-control-lg" required>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-lg" id="buttonSignUp" type="submit">Sign Up</button>
                     </div>
 
                 </form>
             </div>
-        </div>
+            <!-- end form -->
 
-        <div class="col-md-3 col-sm-12 col-lg-3">
-            <div class="pt-5 about-us">
-                <h1 class="text-primary">Contact us</h1>
-                <div class="row">
-                    <a class="col-sm-1 iconContact" href="#"><i class="fa fa-envelope"></i></a>
-                    <p class="col-sm-3 text-muted">easyMl@gmail.com </p>
-                </div>
-
-                <div class="row">
-                    <a class="col-sm-1 iconContact" href="#"><i class="fa fa-phone"></i></a>
-                    <p class="col-sm-3 text-muted">+0000000000000</p>
-                </div>
-
-                <div class="row">
-                    <a class="iconFooter col-sm-1"><i class="fa fa-youtube-square"></i></a>
-                    <a class="iconFooter col-sm-1"><i class="fa fa-facebook-square"></i></a>
-                    <a class="iconFooter col-sm-1"><i class="fa fa-linkedin-square"></i></a>
-                    <a class="iconFooter col-sm-1"><i class="fa fa-twitter-square"></i></a>
-                    <a class="iconFooter col-sm-1"><i class="fa fa-tumblr-square"></i></a>
-                </div>
+            <div class="col-md-6 col-sm-12 col-lg-6">
+                <img src="https://storage.moqups.com/repo/AP0UbHE5ve/8GEUcXKGRI.jpg" class="img-fluid" width="85%"
+                    height="100%" />
             </div>
         </div>
     </div>
-    <hr>
-    <p class="text-muted text-center">&copy; 2020 EasyML. All rights reserved.</p>
+    <!-- end sign up -->
 
-</div>
-<!--end of footer-->
+
+    <!-- Documentation -->
+    <div class="container pt-5 border-bottom" id="documentation">
+        <h1 class="text-center text-primary">Documentation</h1>
+        <p class="pr-3 pl-3 text-center text-muted pb-4 pt-5">It is a long established fact that a reader will be
+            distracted
+            by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
+            a
+            more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it
+            look
+            like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
+            default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+            Various
+            versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the
+            like).</p>
+    </div>
+    <!-- end Documentation-->
+
+
+    <!-- Footer -->
+    <div class="container sign-up pt-5 footer border-bottom" id="footer">
+        <!-- Logo -->
+        <img src="https://storage.moqups.com/repo/AP0UbHE5ve/HUs2CuLXFs.png" height="32">
+
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-lg-5">
+                <div class="pt-5 about-us">
+                    <h1 class="text-primary">About Us</h1>
+                    <p class="text-muted" style="text-align: justify;">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                        distribution of letters, as opposed to using 'Content here, content here', making it look like
+                        readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
+                        their
+                        default model text, and a search for 'lorem ipsum' will uncover many web sites still in their
+                        infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
+                        purpose
+                        (injected humour and the like).
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-lg-4">
+                <div class="pt-5 about-us">
+                    <h1 class="text-primary">Get in touch</h1>
+                    <form>
+                        <div class="mb-3">
+                            <textarea placeholder="Type here" class="form-control-lg form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-9 form-group">
+                                <input type="email" name="email" placeholder="Email Address"
+                                    class="form-control form-control-lg" />
+                            </div>
+                            <div class="col-sm-3 form-group">
+                                <button class="btn btn-primary btn-lg " type="submit">Send</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12 col-lg-3">
+                <div class="pt-5 about-us">
+                    <h1 class="text-primary">Contact us</h1>
+                    <div class="row">
+                        <a class="col-sm-1 iconContact" href="#"><i class="fa fa-envelope"></i></a>
+                        <p class="col-sm-3 text-muted">easyMl@gmail.com </p>
+                    </div>
+
+                    <div class="row">
+                        <a class="col-sm-1 iconContact" href="#"><i class="fa fa-phone"></i></a>
+                        <p class="col-sm-3 text-muted">+0000000000000</p>
+                    </div>
+
+                    <div class="row">
+                        <a class="iconFooter col-sm-1"><i class="fa fa-youtube-square"></i></a>
+                        <a class="iconFooter col-sm-1"><i class="fa fa-facebook-square"></i></a>
+                        <a class="iconFooter col-sm-1"><i class="fa fa-linkedin-square"></i></a>
+                        <a class="iconFooter col-sm-1"><i class="fa fa-twitter-square"></i></a>
+                        <a class="iconFooter col-sm-1"><i class="fa fa-tumblr-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="text-muted text-center">&copy; 2020 EasyML. All rights reserved.</p>
+
+    </div>
+    <!--end of footer-->
 
 </body>
 <script src="index.js"></script>
