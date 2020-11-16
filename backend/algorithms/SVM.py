@@ -8,13 +8,11 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 class SVM: 
 
-    def __init__(self, C,kernel , gamma,shrinking, test_size,random_state): # à  continuer
+    def __init__(self, C,kernel , gamma,shrinking): # à  continuer
        self.C= C
        self.kernel = kernel
        self.gamma = gamma
        self.shrinking = shrinking
-       self.test_siz = test_size
-       self.random_state = random_state
        self.model = SVC(kernel=self.kernel, gamma = self.gamma, C= self.C, shrinking = self.shrinking)
 
 
@@ -30,10 +28,18 @@ class SVM:
     def predict(self, X_test, y_test):
         y_pred = self.model.predict(X_test)
         return classification_report(y_test,y_pred) , (confusion_matrix(y_test,y_pred))
+    @classmethod
+    def visualize(self , X_train):
+        support_vectors = self.model.support_vectors_
+        plt.scatter(X_train[:,0], X_train[:,1])
+        plt.scatter(support_vectors[:,0], support_vectors[:,1], color='red') #red to color the boundary
+        plt.title('separated vectors ')
+        plt.xlabel('X1')
+        plt.ylabel('X2')
+        plt.show()
 
 
 
 
-if __name__ == "__main__":
-    pass
-#Add visualization of output
+
+
