@@ -8,7 +8,7 @@ from sklearn import datasets
 
 
 class KNN:
-    def __init__(self,n_neighbors ,metric, weights, test_size, random_state):
+    def __init__(self,n_neighbors ,metric, weights, test_size, random_state): #important parametrs
         self.n_neighbors = n_neighbors
         self.metric = metric
         self.weigths = weights
@@ -17,21 +17,16 @@ class KNN:
         self.model = KNeighborsClassifier(n_neighbors = self.n_neighbors,metric=self.metric,weights=self.weigths)
     
 
+    def train(self, X_train, y_train):
+        self.model = self.model.fit(X_train, y_train) #fitting
+        return self.model
 
-
-
-
-
-
-    def train(self, X, y):
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.test_size, random_state=self.random_state)
-        self.model = self.model.fit(X_train, y_train) 
+    def predict(self ,X_test, y_test ):
         predicted_classes = self.model.predict(X_test)
-        print("Accuracy:",metrics.accuracy_score(y_test, predicted_classes))
+        return metrics.accuracy_score(y_test, predicted_classes) #evaluation
 
 
-    def predict(self):
-        pass
+        
 if __name__ == "__main__":    
     pass
     # wine = datasets.load_wine()
