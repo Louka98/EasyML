@@ -39,7 +39,7 @@ class SVM:
         plt.show()
 
 if __name__ == "__main__":    
-    
+    pass
     # wine = datasets.load_wine()
     # model = SVM(C = 0.01 , kernel ='linear', gamma = 0.1,shrinking=False)
     # dataset = pd.DataFrame(np.c_[wine['data'], wine['target']],
