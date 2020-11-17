@@ -23,7 +23,6 @@ class KNN:
 
 
 
-    @classmethod
     def train(self, X, y):
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.test_size, random_state=self.random_state)
         self.model = self.model.fit(X_train, y_train) 
@@ -31,18 +30,18 @@ class KNN:
         print("Accuracy:",metrics.accuracy_score(y_test, predicted_classes))
 
 
-    @classmethod
     def predict(self):
         pass
 if __name__ == "__main__":    
-    wine = datasets.load_wine()
-    KNN = KNN(3,'euclidean','distance', 0.3, 1)
-    # KNN.train(X , y)
-    dataset = pd.DataFrame(np.c_[wine['data'], wine['target']],
-                     columns= wine['feature_names'] + ['target'])
+    pass
+    # wine = datasets.load_wine()
+    # KNN = KNN(3,'euclidean','distance', 0.3, 1)
+    # # KNN.train(X , y)
+    # dataset = pd.DataFrame(np.c_[wine['data'], wine['target']],
+    #                  columns= wine['feature_names'] + ['target'])
     
-    X = dataset.iloc[:, :-1].values
-    y = dataset.iloc[:, -1].values
-    KNN.train(X,y)     
+    # X = dataset.iloc[:, :-1].values
+    # y = dataset.iloc[:, -1].values
+    # KNN.train(X,y)     
 
     
