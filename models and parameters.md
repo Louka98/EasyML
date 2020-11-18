@@ -3,6 +3,7 @@
 ## Deep NNs
 
 create_custom
+- "model_type":"nn_create_custom"
 - "hidden_act_func": "relu" (or "selu" or "sigmoid" or "softmax" but "relu" is recommended and should be default)
 - "act_func": "sigmoid" or "softmax" (or "relu" or "selu" but "sigmoid" or "softmax" is recommended and maybe "sigmoid" should be default)
 - "layers": [10,5,3,1]  (meaning we have 4 layers the input layer has 10 neurons and the output layer has 1 neurons (we want to predict 2 different things ) other example [10,5,4] we want to predict 4 different classes)
