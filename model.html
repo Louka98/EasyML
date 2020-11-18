@@ -13,6 +13,9 @@
           integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="algorithms.css">
+    <link rel="stylesheet" href="model.css">
+
     <!--<link rel="stylesheet" href="model.css">-->
 
     <!-- fonts google -->
@@ -77,18 +80,58 @@
 
 
 <!-- Hero -->
-<div class="container hero border-bottom">
-    <section class="row">
-        <div class="col-xs-12">
-            <fieldset>
-                <input type="file" name="File Upload" id="txtFileUpload" accept=".csv"/>
-            </fieldset>
+<div class="">
+    <div class="container hero border-bottom">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 col-lg-4 algoForm">
+                <div class="text">
+                    <section class="row">
+                        <div class="col-xs-12">
+                            <header>
+                                <h1 class="h1Index pt-2 pb-2 mt-2 mb-2 text-center text-light">
+                                    Supervised Learning
+                                </h1>
+                            </header>
+                            <body>
+                            <div class=" mb-3 form-group">
+                                <fieldset>
+                                    <input type="file" name="File Upload" id="txtFileUpload" accept=".csv"/>
+                                </fieldset>
+                            </div>
+                            <div class=" mb-3 form-group">
+                                <select class="browser-default custom-select form-control">
+                                    <option value="" disabled selected>Select an algorithm</option>
+                                    <option value="phd" selected>Support Vector Machine</option>
+                                    <option value="edd">Logistic Regression</option>
+                                    <option value="m2">Binary</option>
+                                    <option value="m1">Multi Label</option>
+                                    <option value="b3">Multi Class classification with Deep Neural Network</option>
+                                    <option value="b2">Decision Tree</option>
+                                    <option value="b1">K-Nearest Neighbour</option>
+                                    <option value="b1">Ridge classifier</option>
+                                    <option value="b1">random forest</option>
+                                </select>
+                            </div>
+
+                            <div class=" mb-3 form-group">
+                                <button type="button" class="btn btn-light">RUN</button>
+                            </div>
+                            </body>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-12 col-lg-8 resultPart">
+
+                <img src="https://storage.moqups.com/repo/AP0UbHE5ve/MuGZS3u9MB.jpg" class="img-fluid"/>
+            </div>
         </div>
-    </section>
+    </div>
 </div>
 
 <!-- end hero -->
-
 
 <!-- Footer -->
 <div class="container sign-up pt-5 footer border-bottom" id="footer">
