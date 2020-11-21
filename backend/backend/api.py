@@ -1,5 +1,6 @@
 from tensorflow.keras import layers
 from backend.neural_networks import *
+from backend.general_model import *
 from datetime import date
 from logging import error, exception
 from flask import Flask, request, jsonify, make_response
@@ -22,7 +23,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ezml.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  #database
-model = None
 
 model = None
 TOKEN_EXP_MIN = 30
@@ -125,6 +125,7 @@ def train(current_user):
     data = request.get_json()
     print(data)
     dataset = data['dataset']
+    #begin clean the data <-----
     dataset = [x for x in dataset if x != [""]]
     print(dataset)
     #TODO better conversion in preprocess data -> create preprocess_data function
@@ -132,13 +133,14 @@ def train(current_user):
     train_y = np.array([1,0,1,0,0])
     print(train_x)
     print(train_y)
-    if data['model_type'] == 'nn_binary_classification':
-        model = ClassificationModel(layers= data['layers'], neurons= data['neurons'], input_shape= (train_x.shape[-1],))
-        model.create_template(type = ModelTypes.binary)
-        hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
-        print(hist.history)
-        
-        return jsonify({'loss': hist.history['loss']})
+    #end clean the data <-----
+
+    model = init_model(**data, input_shape = train_x.shape[1:])
+    print(model.model.summary())
+    hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
+    print(hist.history)
+    
+    return jsonify({'loss': hist.history['loss'], 'val_losss': hist.history['val_loss']})
 
 
 @app.route('/user', methods = ['GET'])
@@ -242,7 +244,6 @@ def predict(current_user):
     prediction  = model.predict(data)
     return prediction
     
-
 
 
 if __name__ == '__main__':
