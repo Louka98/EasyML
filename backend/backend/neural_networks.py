@@ -85,20 +85,20 @@ class ClassificationModel:
             self.type = ModelTypes.multi_label   
 
     
-    def train(self, train_x: np.ndarray, train_y: np.ndarray,
+    def train(self, train_x: np.ndarray, train_y: np.ndarray,test_x: np.ndarray, test_y: np.ndarray,
             batch_size:int = 128, val_split = 0.1, epochs: int = 20, early_stopping: bool = True): #data_x is a [[1,2,3,4 ...],[...]...] and data_y = [0,1,0,1..] are the labels in order
         '''trains the model'''
         if self.type == ModelTypes.binary or self.type == ModelTypes.multi_label:
-            self.model.compile(optimizer = 'adam', loss='binary_crossentropy')
+            self.model.compile(optimizer = 'adam', loss='binary_crossentropy', metrics=['acc'])
         elif self.type == ModelTypes.multi_class:
-            self.model.compile(optimizer = 'adam', loss='categorical_crossentropy')
+            self.model.compile(optimizer = 'adam', loss='categorical_crossentropy', metrics=['acc'])
 
         if early_stopping:
             callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, restore_best_weights= True)
             history = self.model.fit(train_x, train_y,
                         batch_size=batch_size,
                         epochs=epochs,
-                        validation_split= val_split,
+                        validation_data =(test_x,test_y),
                         shuffle=True,
                         verbose=1,
                         callbacks = [callback])
@@ -106,7 +106,7 @@ class ClassificationModel:
             history = self.model.fit(train_x, train_y,
                         batch_size=batch_size,
                         epochs=epochs,
-                        validation_split= val_split,
+                        validation_data =(test_x,test_y),
                         shuffle=True,
                         verbose=1)
 
