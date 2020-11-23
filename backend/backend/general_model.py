@@ -2,7 +2,7 @@ from backend.neural_networks import *
 import traceback
 
 def init_model(**kwargs):
-    '''This function can initialize the models, the parameters are passed as strings from the body of the requests'''
+    '''This function can initialize the models (any model), the parameters are passed as strings from the body of the requests'''
     
     model = None
     try:
@@ -22,4 +22,20 @@ def init_model(**kwargs):
     
     except Exception as e:
         traceback.print_exc()
+        
+        return None
+
+def train_model(model,train_x,train_y,test_x,test_y,**kwargs):
+    '''This function can train any model, the parameters are passed as strings from the body of the requests'''
+    
+    try:
+        hist = {}
+        if isinstance(model, ClassificationModel):
+            hist = model.train(train_x,train_y,test_x,test_y,batch_size=kwargs['batch_size'],epochs= kwargs['epochs'], early_stopping=kwargs['early_stopping']) #instead of val split val_split=0.2
+            
+        return hist
+
+    except Exception as e:
+        traceback.print_exc()
+        
         return None
