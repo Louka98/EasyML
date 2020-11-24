@@ -148,4 +148,7 @@ $(document).ready(function() {
     } else {
         $("#introHeader").html('The File APIs is not fully supported in this browser. Please use another browser.');
     }
+
+    //------------------------------------------------------------------------------------------------------------------
+    
 });
