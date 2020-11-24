@@ -1,5 +1,6 @@
 from tensorflow.keras import layers
 from backend.neural_networks import *
+from backend.general_model import *
 from datetime import date
 from logging import error, exception
 from flask import Flask, request, jsonify, make_response
@@ -14,6 +15,7 @@ import numpy as np
 from functools import wraps
 from sqlalchemy_utils import database_exists
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 app = Flask(__name__)
 CORS(app)
@@ -22,7 +24,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ezml.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)  #database
-model = None
 
 model = None
 TOKEN_EXP_MIN = 30
@@ -125,20 +126,33 @@ def train(current_user):
     data = request.get_json()
     print(data)
     dataset = data['dataset']
+    #begin clean the data <-----
     dataset = [x for x in dataset if x != [""]]
     print(dataset)
     #TODO better conversion in preprocess data -> create preprocess_data function
-    train_x = np.array(dataset[1:][:-1],dtype = np.float32)
-    train_y = np.array([1,0,1,0,0])
+    print(data['labels_included'])
+    #TODO: check if target column is in the right range
+    if data['labels_included']:
+        print(type(data['labels_included']))
+        dataset = dataset[1:]
+    dataset = np.array(dataset,dtype = np.float32)
+    X = np.hstack((dataset[:,:data['target_column']],dataset[:,data['target_column']+1:]))
+    y = dataset[:,data['target_column']]
+
+    train_x, test_x, train_y, test_y = train_test_split(X, y, test_size = data['test_size'])
+    print("data processed")
+
     print(train_x)
     print(train_y)
-    if data['model_type'] == 'nn_binary_classification':
-        model = ClassificationModel(layers= data['layers'], neurons= data['neurons'], input_shape= (train_x.shape[-1],))
-        model.create_template(type = ModelTypes.binary)
-        hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
-        print(hist.history)
-        
-        return jsonify({'loss': hist.history['loss']})
+    #end clean the data <-----
+
+    data['input_shape'] = train_x.shape[1:]
+    model = init_model(**data)
+    print(model.model.summary())
+    hist = train_model(model,train_x,train_y,test_x,test_y, **data)
+    print(hist.history)
+    #TODO: return bad request if some exceptions accures becouse of wrong prameters in request
+    return jsonify({'loss': hist.history['loss'], 'val_losss': hist.history['val_loss'], 'acc': hist.history['acc'], 'val_acc':hist.history['val_acc'] })
 
 
 @app.route('/user', methods = ['GET'])
@@ -244,7 +258,6 @@ def predict(current_user):
     
 
 
-
 if __name__ == '__main__':
 
     if not database_exists('sqlite:///ezml.db'):
@@ -253,5 +266,5 @@ if __name__ == '__main__':
         new_user = User(public_id = str(uuid.uuid4()), name = 'admin', password = hashed_pwd, admin = True)
         db.session.add(new_user)
         db.session.commit()
-    print(db.metadata.tables)
+    #print(db.metadata.tables)
     app.run(debug=True)

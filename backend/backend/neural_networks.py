@@ -85,20 +85,20 @@ class ClassificationModel:
             self.type = ModelTypes.multi_label   
 
     
-    def train(self, train_x: np.ndarray, train_y: np.ndarray,
+    def train(self, train_x: np.ndarray, train_y: np.ndarray,test_x: np.ndarray, test_y: np.ndarray,
             batch_size:int = 128, val_split = 0.1, epochs: int = 20, early_stopping: bool = True): #data_x is a [[1,2,3,4 ...],[...]...] and data_y = [0,1,0,1..] are the labels in order
         '''trains the model'''
         if self.type == ModelTypes.binary or self.type == ModelTypes.multi_label:
-            self.model.compile(optimizer = 'adam', loss='binary_crossentropy')
+            self.model.compile(optimizer = 'adam', loss='binary_crossentropy', metrics=['acc'])
         elif self.type == ModelTypes.multi_class:
-            self.model.compile(optimizer = 'adam', loss='categorical_crossentropy')
+            self.model.compile(optimizer = 'adam', loss='categorical_crossentropy', metrics=['acc'])
 
         if early_stopping:
             callback = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, restore_best_weights= True)
             history = self.model.fit(train_x, train_y,
                         batch_size=batch_size,
                         epochs=epochs,
-                        validation_split= val_split,
+                        validation_data =(test_x,test_y),
                         shuffle=True,
                         verbose=1,
                         callbacks = [callback])
@@ -106,7 +106,7 @@ class ClassificationModel:
             history = self.model.fit(train_x, train_y,
                         batch_size=batch_size,
                         epochs=epochs,
-                        validation_split= val_split,
+                        validation_data =(test_x,test_y),
                         shuffle=True,
                         verbose=1)
 
@@ -134,28 +134,3 @@ if __name__ == '__main__':
     class_zeros_res = model.predict(np.random.uniform(low=11., high=20., size=(1,10)))
     print(class_ones_res)
     print(class_zeros_res)
-
-    # train_x = np.vstack((np.random.uniform(low=0., high=10., size=(1000,10)),np.random.uniform(low=11., high=20., size=(1000,10)))) 
-    
-    # train_y = np.vstack((np.hstack((np.ones(1000).reshape(1000,1),np.zeros(1000).reshape(1000,1),np.zeros(1000).reshape(1000,1))), np.hstack((np.zeros(1000).reshape(1000,1),np.ones(1000).reshape(1000,1),np.zeros(1000).reshape(1000,1)))))
-    # print(train_x.shape)
-    # print(train_y.shape)
-    # model = ClassificationModel(input_shape= (train_x.shape[-1],), output_dim=train_y.shape[-1],hidden_act_func=ActivationFunctions.relu, act_func=ActivationFunctions.softmax)
-    # lays = [10,10,10,10,10,1]
-    # model.create_custom( layers= lays, loss=Loss.categorical_crossentropy)
-    # print(model.input_shape)
-    # print(model.output_dim)
-    # print(model.model.summary())
-    # hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
-    # print(model.predict(np.random.uniform(low=0., high=10., size=(1,10))))
-    # print(model.predict(np.random.uniform(low=11., high=20., size=(1,10))))
-
-    #train_x, train_y = np.vstack((np.random.uniform(low=0., high=10., size=(1000,10)),np.random.uniform(low=11., high=20., size=(1000,10)))), np.hstack((np.ones(1000), np.zeros(1000)))
-    # model = ClassificationModel(layers= 5, neurons= 20, input_shape= (train_x.shape[-1],))
-    # model.create_template(type = ModelTypes.binary)
-    # model.model.summary()
-    # hist = model.train(train_x,train_y, batch_size=3,val_split=0.2,epochs= 10, early_stopping=False)
-    # class_ones_res = model.predict(np.random.uniform(low=0., high=10., size=(2,10)))
-    # class_zeros_res = model.predict(np.random.uniform(low=11., high=20., size=(1,10)))
-    # print(np.around(class_ones_res))
-    # print(np.around(class_zeros_res))
