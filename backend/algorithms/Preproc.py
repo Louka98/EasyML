@@ -8,7 +8,7 @@ from sklearn import preprocessing
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from tensorflow.keras.utils import to_categorical
-import sys
+from sklearn.model_selection import train_test_split
 
 class CustomPreprocess:
 
@@ -65,7 +65,26 @@ class CustomPreprocess:
         
         return data
 
-    def transform(self, data, target_column: str, categ_col_names: List[str]):
+    def t_t_split(self,data, target_column, test_size, loss, output_dim):
+
+        X = data.drop(target_column, axis = 1)
+        y = data[target_column]
+        if output_dim > 1 and loss == "binary_crossentropy":
+            mle = preprocessing.MultiLabelBinarizer()
+            y = [x.split(',') for x in y]
+            y = mle.fit_transform(y)
+        else:
+            le = preprocessing.LabelEncoder()
+            encoded = le.fit_transform(y)
+            if output_dim == 1:
+                y = encoded
+            elif output_dim > 1 and loss == "categorical_crossentropy":
+                y = to_categorical(encoded)
+
+        return train_test_split(X, y, test_size = test_size)
+
+
+    def transform(self, data, target_column: str, categ_col_names: List[str], test_size:float, loss:str = None, output_dim:str = None):
         data = pd.DataFrame(data[1:], columns=data[0])
         data = self.filter_nan(data)
         data = self.type_convert(data,target_column, categ_col_names)
@@ -75,4 +94,17 @@ class CustomPreprocess:
         print(data)
         print('-----END transformed data-----')
         print(data.dtypes)
-        return data
+        print("--------END Types-------")
+        ret = None
+        if loss and output_dim:
+            ret = self.t_t_split(data, target_column, test_size, loss, output_dim)
+            X_train, X_test, y_train, y_test = ret
+            print(X_train)
+            print(np.array(X_train))
+            print(X_test)
+            print(y_train)
+            print(y_test)
+        else:
+            pass
+        
+        return ret

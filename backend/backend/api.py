@@ -1,3 +1,4 @@
+from pandas.core.algorithms import mode
 from tensorflow.keras import layers
 from backend.neural_networks import *
 from backend.general_model import *
@@ -126,7 +127,11 @@ def train(current_user):
     global model
     data = request.get_json()
     preproc = CustomPreprocess()
-    dataset = preproc.transform(data['dataset'], data['target_column'], data['cat_cols'])
+    dataset = None
+    if data['model_type'] == "nn_custom":
+        dataset = preproc.transform(data['dataset'], data['target_column'], data['cat_cols'], data['test_size'], data['loss'], data['layers'][-1])
+    else: 
+        dataset = preproc.transform(data['dataset'], "", data['cat_cols'])
     #begin clean the data <-----
     #TODO better conversion in preprocess data -> create preprocess_data function
     #end clean the data <-----

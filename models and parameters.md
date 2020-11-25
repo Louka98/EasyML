@@ -2,7 +2,8 @@
 
 ## Parameters for the dataset
 - "dataset": list of list with sting elements (with size NxM where N is the rows( N, M taken from [1..inf] interval))
-- "target_column": a number, indexed from 0 to M-1(M-1 is the last column considering 0 based indexing) example: 3
+- "target_column": string, name of the target column example: "quality" IF we use unsupervised method it should be "" (empty string)
+- "cat_cols": name of the columns which are categorical, a list of string (given by user) example: ["taste"]
 - "labels_included": true if the data's first row contains the labels for each column false otherwise
 - "test_size": example: 0.1 meaning we want 10% of the data to be the testset
 ## Deep NNs
@@ -17,10 +18,18 @@ create_custom'''This function can initialize the models, the parameters are pass
 - "batch_size": 10 (10 could be default. it menas we pass 10 examples at the same time to the model this can be any size it could also be a good idea to maximize it as 100 for example, it depends on the performance of our GPU / CPU)
 - "early_stopping": True (by default but also can be False)
 
-
-NEW EXAMPLE: 
+## in multi label case separate the labels with ,
+NEW EXAMPLE:
+- example for multi class classification with NaN values
 {"dataset":[["price","taste","asdf","quality"],["2.0","a","1","good"],["1.0","b","1","good"],["0.0","b","1","bad"],["0.0","c","0","excellent"],["0.0","a","0","bad"],["0.0","a","","sdf"],"",[""]],"target_column":"quality","cat_cols":["taste"],"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,3],"act_func": "softmax", "hidden_act_func": "relu", "loss" : "categorical_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
 
+- example for binary classification with NaN values
+{"dataset":[["price","taste","asdf","quality"],["2.0","a","1","good"],["1.0","b","1","good"],["0.0","b","1","bad"],["0.0","c","0","bad"],["0.0","a","0","bad"],["0.0","a","","sdf"],"",[""]],"target_column":"quality","cat_cols":["taste"],"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,1],"act_func": "sigmoid", "hidden_act_func": "relu", "loss" : "binary_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
+
+- example for multi label classification with NaN values
+{"dataset":[["price","taste","asdf","quality"],["2.0","a","1","good,excellent"],["1.0","b","1","good"],["0.0","b","1","good,bad"],["0.0","c","0","bad"],["0.0","a","0","bad"],["0.0","a","","sdf"],"",[""]],"target_column":"quality","cat_cols":["taste"],"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,3],"act_func": "sigmoid", "hidden_act_func": "relu", "loss" : "binary_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
+
+OLD:
 example for binary classification:
 {"dataset":[["100","120","1","1"],["1","0","1","1"],["0","1","1","1"],["0","0","0","0"],["0","1","0","0"]],"target_column":3,"labels_included":false,"model_type" : "nn_custom","layers" : [10,7,5,1],"act_func": "sigmoid", "hidden_act_func": "relu", "loss" : "binary_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1 }
 
