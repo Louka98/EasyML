@@ -7,6 +7,7 @@ from sklearn.cluster import OPTICS
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import MeanShift
 from sklearn.cluster import SpectralClustering
+from sklearn.metrics import silhouette_score
 import numpy as np
 
 
@@ -14,7 +15,18 @@ class clustering:
     
     def __init__(self):
         self.model = None
-    
+        
+    def nclusters(data):
+        scores=[]
+        for x in range(2,20):
+            kmeans=KMeans(n_clusters=x)
+            kmeans.fit(data)
+            score = silhouette_score(data, kmeans.labels_, metric='euclidean')
+            scores.append(score)
+        return np.argmax(scores)+2
+        
+        
+        
     def Kmeans(self, n_clusters=3):
        self.model= KMeans(n_clusters=n_clusters) #creating model
         
