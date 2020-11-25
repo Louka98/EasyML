@@ -34,17 +34,15 @@ class clustering:
     def Dbscan(self, eps = 0.3, min_samples = 10):
         self.model=DBSCAN(eps=eps,min_samples=min_samples) #creating model
         
-    def agg_cluster(self):
-        self.model=AgglomerativeClustering()
+    def agg_cluster(self,n_clusters=3,linkage):
+        self.model=AgglomerativeClustering(n_clusters=n_clusters, linkage=linkage)
         
     def ms(self,bandwidth=2):
         self.model=MeanShift(bandwidth=bandwidth)
         
     def sc(self,n_clusters=3):
         self.model=SpectralClustering(n_clusters=n_clusters)
-        
-    def optics(self):
-        self.model=OPTICS()
+
         
     def train(self,data):
         self.model.fit(data)
