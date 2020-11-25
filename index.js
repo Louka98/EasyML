@@ -257,7 +257,7 @@ $(function(){
             "method": "GET",
             "timeout": 0,
             "headers": {
-                "Authorization": "Basic " + btoa(document.getElementById("usernameLogin").value+":"+document.getElementById("passwordLogin").value)
+                "Authorization": "Basic " + btoa(document.getElementById("userNameLogin").value+":"+document.getElementById("passwordLogin").value)
             },
         };
 
