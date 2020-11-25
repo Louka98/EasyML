@@ -16,6 +16,7 @@ from functools import wraps
 from sqlalchemy_utils import database_exists
 import numpy as np
 from sklearn.model_selection import train_test_split
+from algorithms.Preproc import *
 
 app = Flask(__name__)
 CORS(app)
@@ -124,26 +125,10 @@ def train(current_user):
     
     global model
     data = request.get_json()
-    print(data)
-    dataset = data['dataset']
+    preproc = CustomPreprocess()
+    dataset = preproc.transform(data['dataset'], data['target_column'], data['cat_cols'])
     #begin clean the data <-----
-    dataset = [x for x in dataset if x != [""]]
-    print(dataset)
     #TODO better conversion in preprocess data -> create preprocess_data function
-    print(data['labels_included'])
-    #TODO: check if target column is in the right range
-    if data['labels_included']:
-        print(type(data['labels_included']))
-        dataset = dataset[1:]
-    dataset = np.array(dataset,dtype = np.float32)
-    X = np.hstack((dataset[:,:data['target_column']],dataset[:,data['target_column']+1:]))
-    y = dataset[:,data['target_column']]
-
-    train_x, test_x, train_y, test_y = train_test_split(X, y, test_size = data['test_size'])
-    print("data processed")
-
-    print(train_x)
-    print(train_y)
     #end clean the data <-----
 
     data['input_shape'] = train_x.shape[1:]
