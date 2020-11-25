@@ -2,7 +2,7 @@ $(document).ready(function () {
     $(document).ready(function(){
         $("#hero2").hide();
         $("#errorFullName").hide();
-        $("#errorUserName").hide();
+        $("#errorUserNameLogin").hide();
         $("#errorEmailAddress").hide();
         $("#errorGender").hide();
         $("#errorPassword").hide();
@@ -10,7 +10,7 @@ $(document).ready(function () {
         $("#errorEmailAddressLogin").hide();
 
         var errorFullName = false;
-        var errorUserName = false;
+        var errorUserNameLogin = false;
         var errorEmailAddress = false;
         var errorGender = false;
         var errorPassword = false;
@@ -21,6 +21,10 @@ $(document).ready(function () {
 
         $("#fullName").focusout(function (){
             checkFullName();
+        });
+
+        $("#userNameLogin").focusout(function (){
+            checkUserNameLogin();
         });
 
         $("#usernameRegister").focusout(function (){
@@ -72,9 +76,22 @@ $(document).ready(function () {
             }
         }
 
-        function checkUserName(){
-            var fullNameLength = $("#usernameRegister").val().length;
+        function checkUserNameLogin(){
 
+            var expRegUserName = new RegExp(/^[a-zA-Z0-9]{4,15}$/i);
+
+            if(!(expRegUserName.test($("#userNameLogin").val()))){
+                $("#errorUserName").show();
+                errorUserNameLogin = true;
+                $("#userNameLogin").addClass("is-invalid");
+            }
+            else{
+                $("#errorUserNameLogin").hide();
+                $("#userNameLogin").removeClass("is-invalid");
+            }
+        }
+
+        function checkUserName(){
             var expRegUserName = new RegExp(/^[a-zA-Z0-9]{4,15}$/i);
 
             if(!(expRegUserName.test($("#usernameRegister").val()))){
@@ -233,7 +250,6 @@ AOS.init({
     duration: 2500,
 })
 
-
 $(function(){
     $('#loginForm').submit(function() {
         var settings = {
@@ -277,37 +293,3 @@ $(function(){
         event.preventDefault();
     });
 });
-
-// input change -> send the csv converte to json to the server
-document.getElementById('inputfile').addEventListener('change', function () {
-
-    var fr = new FileReader();
-    fr.onload = function () {
-        document.getElementById('output')
-            .textContent = fr.result;
-        var lines = fr.result.replace(/\r\n/g, "\n").split("\n")
-        for (let index = 0; index < lines.length; index++) {
-            lines[index] = lines[index].split(";")
-        }
-        JSON.stringify(lines)
-        var data = JSON.stringify({ "model_type": "nn_binary_classification", "dataset": lines, "layers": 5, "neurons": 20 })
-        
-        var settings = {
-            "url": "http://127.0.0.1:5000/model/train",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-              "x-access-token": localStorage.token,
-              "Content-Type": "application/json"
-            },
-            "data": data,
-          };
-
-          $.ajax(settings).done(function (response) {
-            console.log(response);
-          });
-
-    }
-
-    fr.readAsText(this.files[0]);
-}) 
