@@ -17,17 +17,23 @@ create_custom'''This function can initialize the models, the parameters are pass
 - "batch_size": 10 (10 could be default. it menas we pass 10 examples at the same time to the model this can be any size it could also be a good idea to maximize it as 100 for example, it depends on the performance of our GPU / CPU)
 - "early_stopping": True (by default but also can be False)
 
+
+NEW EXAMPLE: 
+{"dataset":[["price","taste","asdf","quality"],["2.0","a","1","good"],["1.0","b","1","good"],["0.0","b","1","bad"],["0.0","c","0","excellent"],["0.0","a","0","bad"],["0.0","a","","sdf"],"",[""]],"target_column":"quality","cat_cols":["taste"],"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,3],"act_func": "softmax", "hidden_act_func": "relu", "loss" : "categorical_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
+
 example for binary classification:
 {"dataset":[["100","120","1","1"],["1","0","1","1"],["0","1","1","1"],["0","0","0","0"],["0","1","0","0"]],"target_column":3,"labels_included":false,"model_type" : "nn_custom","layers" : [10,7,5,1],"act_func": "sigmoid", "hidden_act_func": "relu", "loss" : "binary_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1 }
 
 example2 for binary classification:
 {"dataset":[["price","taste","asdf","quality"],["1","1","1","1"],["1","0","1","1"],["0","1","1","1"],["0","0","0","0"],["0","1","0","0"]],"target_column":3,"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,1],"act_func": "sigmoid", "hidden_act_func": "relu", "loss" : "binary_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
 
-example3 for multi label classification
-{"dataset":[["price","taste","asdf","quality"],["1","1","1","good"],["1","0","1","good"],["0","1","1","bad"],["0","0","0","excellent"],["0","1","0","bad"]],"target_column":3,"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,3],"act_func": "softmax", "hidden_act_func": "relu", "loss" : "categorical_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
+example1 for multi label classification
+{"dataset":[["price","taste","asdf","quality"],["1","a","1","good"],["1","b","1","good"],["0","b","1","bad"],["0","c","0","excellent"],["0","a","0","bad"]],"target_column":3,"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,3],"act_func": "softmax", "hidden_act_func": "relu", "loss" : "categorical_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
 
 example2 for binary classification:
 {"dataset":[["price","taste","asdf","quality"],["1","1","1","good,excellent"],["1","0","1","good"],["0","1","1","bad,good"],["0","0","0","bad"],["0","1","0","bad"]],"target_column":3,"labels_included":true,"model_type" : "nn_custom","layers" : [10,7,5,3],"act_func": "sigmoid", "hidden_act_func": "relu", "loss" : "binary_crossentropy", "batch_size":3, "epochs": 10, "early_stopping":true, "test_size": 0.1}
+
+
 
 result example of a request (will be in the request body):
 {
