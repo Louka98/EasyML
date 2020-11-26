@@ -39,6 +39,8 @@ class preprocess:
         return data.isnull().sum()
     def imputer(self): #should be used with pipeline 
         return SimpleImputer(missing_values=nan, strategy='most_frequent')
+    def scale(self,X_train):
+        return preprocessing.scale(X_train)
 
 
 
