@@ -8,12 +8,10 @@ from sklearn import datasets
 
 
 class KNN:
-    def __init__(self,n_neighbors ,metric, weights, test_size, random_state): #important parametrs
+    def __init__(self,n_neighbors ,metric, weights): #important parametrs
         self.n_neighbors = n_neighbors
         self.metric = metric
         self.weigths = weights
-        self.test_size = test_size
-        self.random_state = random_state
         self.model = KNeighborsClassifier(n_neighbors = self.n_neighbors,metric=self.metric,weights=self.weigths)
     
 
