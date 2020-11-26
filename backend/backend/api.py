@@ -1,4 +1,5 @@
 from pandas.core.algorithms import mode
+from sklearn import cluster
 from tensorflow.keras import layers
 from backend.neural_networks import *
 from backend.general_model import *
@@ -18,6 +19,7 @@ from sqlalchemy_utils import database_exists
 import numpy as np
 from sklearn.model_selection import train_test_split
 from algorithms.Preproc import *
+from backend.general_model import cluster_alg_names
 
 app = Flask(__name__)
 CORS(app)
@@ -29,6 +31,7 @@ db = SQLAlchemy(app)  #database
 
 model = None
 TOKEN_EXP_MIN = 30
+
 
 class User(db.Model):
     '''Class representing the users of the application'''
@@ -133,14 +136,15 @@ def train(current_user):
         data['input_shape'] = X_train.shape[1:]
         model = init_model(**data)
         print(model.model.summary())
-        hist = train_model(model, X_train, y_trian, X_test, y_test, **data)
-        print(hist.history)
-    else: 
-        dataset = preproc.transform(data['dataset'], "", data['cat_cols'])
-
-    
+        hist = train_model(model, X_train, y_trian, X_test, y_test, **data).history
+        print(hist)
+    elif data['model_type'] in cluster_alg_names: 
+        X_train = preproc.transform(data['dataset'], "", data['cat_cols'], 0)
+        data['dataset'] = X_train
+        model = init_model(**data)
+        hist = train_model(model, X_train, None, None, None, **data)
     #TODO: return bad request if some exceptions accures becouse of wrong prameters in request
-    return jsonify({'loss': hist.history['loss'], 'val_losss': hist.history['val_loss'], 'acc': hist.history['acc'], 'val_acc':hist.history['val_acc'] })
+    return jsonify(hist)
 
 
 @app.route('/user', methods = ['GET'])
