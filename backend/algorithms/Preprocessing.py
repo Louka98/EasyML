@@ -11,17 +11,18 @@ class preprocess:
         self.technique = None
 
     def normalize(data):
-        for x in data.columns:
-            if data[x].dtypes == float:
-                data[x]=((data[x]-data[x].min())/(data[x].max()-data[x].min()))
+        scaler = preprocessing.MinMaxScaler()
+        scaler.fit(data)
+        data = pd.DataFrame(scaler.transform(data), index=data.index, columns=data.columns)
         return data
+                
 
-    def standatize(data):
-        for x in data.columns:
-            if data[x].dtypes == float:
-                data[x]=((data[x]-data[x].mean())/(data[x].std()))
+    def standarize(data):
+        scaler = preprocessing.StandardScaler()
+        scaler.fit(data)
+        data = pd.DataFrame(scaler.transform(data), index=data.index, columns=data.columns)
         return data
-
+    
     def categorical(data,categories):
         newdata=pd.get_dummies(data,columns=categories)
         
