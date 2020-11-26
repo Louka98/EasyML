@@ -31,6 +31,9 @@ class preprocess:
         return newdata
     def drop_nan(self,data):
         return data.dropna(inplace=True)
+    def mean_nan(self,data):
+        return data.fillna(data.mean(), inplace=True)
+
 
 
 
@@ -39,7 +42,7 @@ if __name__ == "__main__" :
     prep = preprocess()
     dataset = pd.DataFrame(np.c_[wine['data'], wine['target']],
                      columns= wine['feature_names'] + ['target'])
-    prep.drop_nan(dataset)
+    prep.mean_nan(dataset)
    
     
 
