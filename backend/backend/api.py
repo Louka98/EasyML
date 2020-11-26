@@ -127,20 +127,18 @@ def train(current_user):
     global model
     data = request.get_json()
     preproc = CustomPreprocess()
-    dataset = None
+
     if data['model_type'] == "nn_custom":
-        dataset = preproc.transform(data['dataset'], data['target_column'], data['cat_cols'], data['test_size'], data['loss'], data['layers'][-1])
+        X_train, X_test, y_trian, y_test = preproc.transform(data['dataset'], data['target_column'], data['cat_cols'], data['test_size'], data['loss'], data['layers'][-1])
+        data['input_shape'] = X_train.shape[1:]
+        model = init_model(**data)
+        print(model.model.summary())
+        hist = train_model(model, X_train, y_trian, X_test, y_test, **data)
+        print(hist.history)
     else: 
         dataset = preproc.transform(data['dataset'], "", data['cat_cols'])
-    #begin clean the data <-----
-    #TODO better conversion in preprocess data -> create preprocess_data function
-    #end clean the data <-----
 
-    data['input_shape'] = train_x.shape[1:]
-    model = init_model(**data)
-    print(model.model.summary())
-    hist = train_model(model,train_x,train_y,test_x,test_y, **data)
-    print(hist.history)
+    
     #TODO: return bad request if some exceptions accures becouse of wrong prameters in request
     return jsonify({'loss': hist.history['loss'], 'val_losss': hist.history['val_loss'], 'acc': hist.history['acc'], 'val_acc':hist.history['val_acc'] })
 
