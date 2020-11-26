@@ -16,7 +16,7 @@ class clustering:
     def __init__(self):
         self.model = None
         
-    def nclusters(data):
+    def nclusters(self, data):
         scores=[]
         for x in range(2,20):
             kmeans=KMeans(n_clusters=x)
@@ -24,17 +24,14 @@ class clustering:
             score = silhouette_score(data, kmeans.labels_, metric='euclidean')
             scores.append(score)
         return np.argmax(scores)+2
-        
-        
-        
-    def Kmeans(self, n_clusters=3):
+  
+    def kmeans(self, n_clusters=3):
        self.model= KMeans(n_clusters=n_clusters) #creating model
-        
                         
-    def Dbscan(self, eps = 0.3, min_samples = 10):
+    def dbscan(self, eps = 0.3, min_samples = 10):
         self.model=DBSCAN(eps=eps,min_samples=min_samples) #creating model
         
-    def agg_cluster(self,n_clusters=3,linkage):
+    def agg_cluster(self,linkage,n_clusters=3):
         self.model=AgglomerativeClustering(n_clusters=n_clusters, linkage=linkage)
         
     def ms(self,bandwidth=2):
@@ -45,9 +42,9 @@ class clustering:
 
         
     def train(self,data):
-        self.model.fit(data)
+        model = self.model.fit(data)
         data['Labels'] = self.model.labels_     #Result
-        return data
+        return model
     
     def pred(self,ex):
         y=self.model.predict(ex)

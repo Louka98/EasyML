@@ -95,7 +95,7 @@ class CustomPreprocess:
         print('-----END transformed data-----')
         print(data.dtypes)
         print("--------END Types-------")
-        ret = None
+    
         if loss and output_dim:
             ret = self.t_t_split(data, target_column, test_size, loss, output_dim)
             X_train, X_test, y_train, y_test = ret
@@ -104,7 +104,8 @@ class CustomPreprocess:
             print(X_test)
             print(y_train)
             print(y_test)
-        else:
-            pass
+            
+            return ret
         
-        return ret
+        return data
+        
