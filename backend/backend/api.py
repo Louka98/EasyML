@@ -47,7 +47,7 @@ class User(db.Model):
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
-#TODO: optional refresh the token every x minutes 
+
 def token_required(f):
     '''decorator for token authentication
     if used, the first argument of the decorated function should be current_user'''
@@ -143,7 +143,7 @@ def train(current_user):
         data['dataset'] = X_train
         model = init_model(**data)
         hist = train_model(model, X_train, None, None, None, **data)
-    #TODO: return bad request if some exceptions accures becouse of wrong prameters in request
+    #
     return jsonify(hist)
 
 
