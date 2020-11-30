@@ -143,7 +143,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <input id = "layer0" type="number" min = "1" name="num" placeholder="number of neurons"
+                                            <input id = "layer0" type="number" min = "1" value ="10" name="num" placeholder="number of neurons"
                                                   class="form-control"/>
                                         </td>
         
@@ -154,7 +154,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <input id = "layer1" type="number" min = "1" name="num" placeholder="number of neurons"
+                                            <input id = "layer1" type="number" min = "1" value = "1" name="num" placeholder="number of neurons"
                                                   class="form-control"/>
                                         </td>
                                     </tr>
@@ -201,7 +201,7 @@
                                         <select class="browser-default custom-select form-control" id = "loss">
                                             <option value="" disabled selected>Select a hidden activation function</option>
                                             <option value="binary_crossentropy" selected>binary crossentropy</option>
-                                            <option value="categorical_crossetropy">categorical crossentropy</option>
+                                            <option value="categorical_crossentropy">categorical crossentropy</option>
                                         </select>
                                     </div>
                                 </div>
@@ -256,9 +256,10 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-sm-12 col-lg-6 resultPart">
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <div id="chart_div"></div>
+            <div id = "result_div" class="col-md-6 col-sm-12 col-lg-6 resultPart">
+                <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <div id="chart_div"></div> -->
+                <canvas id="result_canvas" width="200" height="100"></canvas> <!-- change with real sizes --> 
             </div>
         </div>
     </div>

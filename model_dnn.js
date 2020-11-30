@@ -22,6 +22,7 @@ $(document).ready(function() {
         newInput.setAttribute("type", "number");
         newInput.setAttribute("id", "layer" + index);
         newInput.setAttribute("name", "num");
+        newInput.setAttribute("value", "1");
         newInput.setAttribute("min", "1");
         newInput.setAttribute("class", "form-control")
         newInput.setAttribute("placeholder", "number of neurons");
@@ -79,6 +80,26 @@ $(document).ready(function() {
     
               $.ajax(settings).done(function (response) {
                 console.log(response);
+
+                var canvas = document.getElementById("result_canvas"); 
+                canvas.width  = response["width"];
+                canvas.height = response["height"];
+                canvas.style.zIndex   = 8;
+                canvas.style.position = "absolute";
+                canvas.style.border   = "1px solid";
+
+                var ctx = canvas.getContext("2d");
+                var r,g,b; 
+
+                for(var i=0; i< response["image"].length; i++){ 
+                    for(var j=0; j< response["image"][0].length; j++){ 
+                        r = response["image"][i][j][0]; 
+                        g = response["image"][i][j][1];	 
+                        b = response["image"][i][j][2];		 
+                        ctx.fillStyle = "rgba("+r+","+g+","+b+", 1)";  
+                        ctx.fillRect( j, i, 1, 1 ); 
+                    } 
+                }  
               });
         // $('#result').text(JSON.stringify(data)) 
         //return false;
