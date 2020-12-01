@@ -129,6 +129,7 @@ def train(current_user):
     
     global model
     data = request.get_json()
+    print(data)
     preproc = CustomPreprocess()
 
     if data['model_type'] == "nn_custom":
@@ -137,7 +138,8 @@ def train(current_user):
         model = init_model(**data)
         print(model.model.summary())
         hist = train_model(model, X_train, y_trian, X_test, y_test, **data).history
-        print(hist)
+        img, height, width = create_plot(data['model_type'],hist)
+        hist['image'], hist['height'], hist['width'] = img.tolist(), height, width
     elif data['model_type'] in cluster_alg_names: 
         X_train = preproc.transform(data['dataset'], "", data['cat_cols'], 0)
         data['dataset'] = X_train
