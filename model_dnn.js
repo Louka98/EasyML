@@ -102,6 +102,18 @@ $(document).ready(function() {
             document.getElementById("error_msg").innerHTML = "Please specify a valid target colum name!";
             return; 
         }
+
+        var categorical = document.getElementById("categorical").value;
+        var cat = categorical.split(",");
+        for(let e of cat)
+        {
+            if(!dat[0].includes(e))
+            {
+                $("#error_msg").show();
+                document.getElementById("error_msg").innerHTML = "Please specify a valid categorical colum name!";
+                return; 
+            }
+        }
         
         epochs = document.getElementById("epochs");
         if(!epochs.checkValidity())
@@ -197,23 +209,7 @@ $(document).ready(function() {
             for (let index = 0; index < lines.length; index++) {
                 lines[index] = lines[index].split(",")
             }
-            dat = lines
-            // var data = JSON.stringify({ "model_type": "nn_binary_classification", "dataset": lines, "layers": 5, "neurons": 20 })
-    
-            // var settings = {
-            //     "url": "http://127.0.0.1:5000/model/train",
-            //     "method": "POST",
-            //     "timeout": 0,
-            //     "headers": {
-            //       "x-access-token": localStorage.token,
-            //       "Content-Type": "application/json"
-            //     },
-            //     "data": data,
-            //   };
-    
-            //   $.ajax(settings).done(function (response) {
-            //     console.log(response);
-            //   });
+            dat = lines;
     
         }
     
