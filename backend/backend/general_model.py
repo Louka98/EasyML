@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-from numpy.lib.type_check import imag
 import seaborn as sns
+import pandas as pd
 
 cluster_alg_names = ['kmeans']
 
@@ -146,6 +146,8 @@ def create_plot(model_type:str, hist, data = None):
         print(height)
         #plt.imshow(image)
         #plt.show()
+        print(data.head())
+        data.drop(data.columns[3:-2], axis=1, inplace=True)
 
         pairplot = sns.pairplot(data, hue = 'labels')
         fig2 = pairplot.fig
