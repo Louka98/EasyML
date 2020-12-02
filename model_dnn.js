@@ -107,7 +107,7 @@ $(document).ready(function() {
         var cat = categorical.split(",");
         for(let e of cat)
         {
-            if(!dat[0].includes(e))
+            if(!dat[0].includes(e) && cat[0] != "")
             {
                 $("#error_msg").show();
                 document.getElementById("error_msg").innerHTML = "Please specify a valid categorical colum name!";
