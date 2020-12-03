@@ -28,7 +28,7 @@ class KNN:
 if __name__ == "__main__":    
     pass
     # wine = datasets.load_wine()
-    # KNN = KNN(3,'euclidean','distance', 0.3, 1)
+    KNN = KNN(3,'euclidean','distance')
     # # KNN.train(X , y)
     # dataset = pd.DataFrame(np.c_[wine['data'], wine['target']],
     #                  columns= wine['feature_names'] + ['target'])

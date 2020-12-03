@@ -1,5 +1,6 @@
 from backend.neural_networks import *
 from algorithms.Clusters import clustering
+from algorithms import *
 import traceback
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,7 +14,7 @@ def init_model(**kwargs):
     '''This function can initialize the models (any model), the parameters are passed as strings from the body of the requests'''
     
     model = None
-    try:
+    try:  #models creation based on user choice
         if kwargs['model_type'] == 'nn_custom':
 
             hidden_act_func = ActivationFunctions[kwargs['hidden_act_func']]
@@ -32,6 +33,27 @@ def init_model(**kwargs):
 
             model = ClassificationModel(layers = kwargs['layers'], neurons=kwargs['neurons'], input_shape=kwargs['input_shape'])
             model.create_template(type=ModelTypes.binary)
+
+        if kwargs['model_type'] == 'Decision Tree':
+            model = decision_tree(kwargs['criterion'],kwargs['max_depth'])
+        
+        if kwargs['model_type'] == 'K-Nearest Neighbour':
+            model = KNN(kwargs['n_neighbors'], kwargs['metric'],kwargs['weights'])
+
+        if kwargs['model_type'] == 'Logistic Regression':
+            model = Logistic_regression(kwargs['solver'], kwargs['penalty'],kwargs['C'])    
+
+        if kwargs['model_type'] == 'Random forest':
+            model = RandomForest(kwargs['nb_estimators'], kwargs['random_state'],kwargs['C'])  
+
+        if kwargs['model_type'] == 'Ridge classifier':
+            model = Ridge(kwargs['alpha'])  
+
+        if kwargs['model_type'] == 'Support Vector Machine':
+            model = SVM(kwargs['C'], kwargs['kernel'],kwargs['gamma'],kwargs['shrinking']) 
+        if kwargs['model_type'] == 'Voting':
+            model = VotingClf()   
+        
 
         return model
     
@@ -56,6 +78,9 @@ def train_model(model,train_x,train_y,test_x,test_y,**kwargs):
             hist['interia'] = float(model.inertia_)
             hist['n_iter'] = int(model.n_iter_)
         return hist
+
+            
+
 
     except Exception as e:
         traceback.print_exc()
