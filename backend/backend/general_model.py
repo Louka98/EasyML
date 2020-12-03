@@ -1,3 +1,5 @@
+from backend.algorithms.VotingClf import Voting
+from backend.algorithms.DecisionTree import decision_tree
 from backend.neural_networks import *
 from algorithms.Clusters import clustering
 from algorithms import *
@@ -68,7 +70,7 @@ def train_model(model,train_x,train_y,test_x,test_y,**kwargs):
     try:
         hist = {}
         if isinstance(model, ClassificationModel):
-            hist = model.train(train_x,train_y,test_x,test_y,batch_size=kwargs['batch_size'],epochs= kwargs['epochs'], early_stopping=kwargs['early_stopping']) #instead of val split val_split=0.2
+            return model.train(train_x,train_y,test_x,test_y,batch_size=kwargs['batch_size'],epochs= kwargs['epochs'], early_stopping=kwargs['early_stopping']) #instead of val split val_split=0.2
             
         if isinstance(model, clustering):
             
@@ -77,10 +79,20 @@ def train_model(model,train_x,train_y,test_x,test_y,**kwargs):
             hist['cluster_centers'] = [[float(y) for y in x] for x in model.cluster_centers_]
             hist['interia'] = float(model.inertia_)
             hist['n_iter'] = int(model.n_iter_)
-        return hist
+            return hist
 
-            
-
+        if isinstance(model,SVM):
+            return  model.train(train_x,train_y)
+        if isinstance(model,DecisionTree):
+            return  model.train(train_x,train_y) 
+        if isinstance(model,KNN):
+            return  model.train(train_x,train_y)   
+        if isinstance(model,Ridge):
+            return  model.train(train_x,train_y)  
+        if isinstance(model,VotingClf):
+            return  model.train(train_x,train_y)    
+        if isinstance(model,RandomForest):
+            return  model.train(train_x,train_y)         
 
     except Exception as e:
         traceback.print_exc()
@@ -128,5 +140,7 @@ def create_plot(model_type:str, hist):
         print(height)
         #plt.imshow(image)
         #plt.show()
-
-    return image, height, width
+        return image, height, width
+    else:
+      #   if model_type == 'SVM':
+      pass
