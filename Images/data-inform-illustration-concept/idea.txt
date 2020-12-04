@@ -1,0 +1,36 @@
+Which business domains are interesting for you?
+For me the business domains are interesting: ai oriented fields
+
+Please introduce yourself (optional)
+I'm Latifa LECHLECH. I'm 19 years old. I'm from Algeria. I'm  master 1 student in artificial Intelligence specialization. 
+
+Title of your startup
+investRealIdea
+
+In which business domain does the startup operate?
+The startup operates in the customer services business domain using ai oriented fields
+
+What is the current status of the startup?
+It's just an idea.
+
+Describe the startup
+An application that helps people especially students to start their startup and orient them. And help investors to find the idea that they want to invest quickly.
+
+Describe the problem
+The problem is : for people who have an idea (students): how to find investors quickly for investors: how to find ideas to invest quickly
+
+Describe the solution
+Create an application that contains ideas of students and investors.
+
+Specify the competitors of the startup
+the competitors of the startup : https://republic.co/https://www.ourcrowd.com/https://fundersclub.com/
+
+Why is the startup unique
+The startup is unique because of the scalability of the growth and experimenting mindset.
+
+What is the target audience of the startup?
+the target audience of the startup is students and investors.
+
+Why would someone use it?
+To gain time because it uses a recommendation system for investors. And orient people to archive their ideas.
+
