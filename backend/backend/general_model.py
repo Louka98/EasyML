@@ -1,5 +1,5 @@
-from backend.algorithms.VotingClf import Voting
-from backend.algorithms.DecisionTree import decision_tree
+#from backend.algorithms.VotingClf import Voting
+#from backend.algorithms.DecisionTree import decision_tree
 from backend.neural_networks import *
 from algorithms.Clusters import clustering
 from algorithms import *
@@ -36,31 +36,6 @@ def init_model(**kwargs):
 
                 model.kmeans(n_clusters=n_clusters)
 
-        if kwargs['model_type'] == 'nn_binary_classification':
-
-            model = ClassificationModel(layers = kwargs['layers'], neurons=kwargs['neurons'], input_shape=kwargs['input_shape'])
-            model.create_template(type=ModelTypes.binary)
-
-        if kwargs['model_type'] == 'Decision Tree':
-            model = decision_tree(kwargs['criterion'],kwargs['max_depth'])
-        
-        if kwargs['model_type'] == 'K-Nearest Neighbour':
-            model = KNN(kwargs['n_neighbors'], kwargs['metric'],kwargs['weights'])
-
-        if kwargs['model_type'] == 'Logistic Regression':
-            model = Logistic_regression(kwargs['solver'], kwargs['penalty'],kwargs['C'])    
-
-        if kwargs['model_type'] == 'Random forest':
-            model = RandomForest(kwargs['nb_estimators'], kwargs['random_state'],kwargs['C'])  
-
-        if kwargs['model_type'] == 'Ridge classifier':
-            model = Ridge(kwargs['alpha'])  
-
-        if kwargs['model_type'] == 'Support Vector Machine':
-            model = SVM(kwargs['C'], kwargs['kernel'],kwargs['gamma'],kwargs['shrinking']) 
-        if kwargs['model_type'] == 'Voting':
-            model = VotingClf()   
-        
 
         return model
     
@@ -85,19 +60,6 @@ def train_model(model,train_x,train_y,test_x,test_y,**kwargs):
             hist['interia'] = float(model.inertia_)
             hist['n_iter'] = int(model.n_iter_)
             return hist
-
-        if isinstance(model,SVM):
-            return  model.train(train_x,train_y)
-        if isinstance(model,DecisionTree):
-            return  model.train(train_x,train_y) 
-        if isinstance(model,KNN):
-            return  model.train(train_x,train_y)   
-        if isinstance(model,Ridge):
-            return  model.train(train_x,train_y)  
-        if isinstance(model,VotingClf):
-            return  model.train(train_x,train_y)    
-        if isinstance(model,RandomForest):
-            return  model.train(train_x,train_y)         
 
     except Exception as e:
         traceback.print_exc()
