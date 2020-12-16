@@ -158,6 +158,13 @@ $(document).ready(function() {
 
         var data = JSON.stringify({"dataset":dat,"target_column":target_column,"cat_cols":cat_cols,"labels_included":true,"model_type" : "nn_custom","layers" : layers,"act_func": act_func, "hidden_act_func": hidden_act_func, "loss" : loss, "batch_size": 10, "epochs": epochs, "early_stopping":true, "test_size": test_size})
     
+        var x = document.getElementById("loader");
+        document.getElementById("run").disabled = true;
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
             var settings = {
                 "url": "http://127.0.0.1:5000/model/train",
                 "method": "POST",
@@ -168,9 +175,12 @@ $(document).ready(function() {
                 },
                 "data": data,
               };
-    
+              
+
               $.ajax(settings).done(function (response) {
                 console.log(response);
+                
+                
 
                 var canvas = document.getElementById("result_canvas"); 
                 canvas.width  = response["width"];
@@ -191,6 +201,15 @@ $(document).ready(function() {
                         ctx.fillRect( j, i, 1, 1 ); 
                     } 
                 }  
+
+                var x = document.getElementById("loader");
+                document.getElementById("run").disabled = false ;
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+
               });
         // $('#result').text(JSON.stringify(data)) 
         //return false;

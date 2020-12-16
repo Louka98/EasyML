@@ -77,6 +77,14 @@ $(document).ready(function() {
 
         var data = JSON.stringify({"dataset":dat,"target_column":"","cat_cols":cat_cols,"labels_included":true,"model_type" : model_type,"n_clusters": parseInt(clust.value)})
     
+        var x = document.getElementById("loader");
+        document.getElementById("run").disabled = true;
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+
             var settings = {
                 "url": "http://127.0.0.1:5000/model/train",
                 "method": "POST",
@@ -90,6 +98,9 @@ $(document).ready(function() {
     
               $.ajax(settings).done(function (response) {
                 console.log(response);
+
+                
+
                 var div = document.getElementById("result_div");
                 div.setAttribute("style","height:1000px");
                 var div2 = document.getElementById("result_div2");
@@ -134,6 +145,15 @@ $(document).ready(function() {
                         ctx.fillRect( j, i, 1, 1 ); 
                     } 
                 }
+
+                var x = document.getElementById("loader");
+                document.getElementById("run").disabled = false ;
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+
               });
         // $('#result').text(JSON.stringify(data)) 
         //return false;

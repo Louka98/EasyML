@@ -240,13 +240,15 @@
                             <div class=" mb-3 form-group">
                                 
                                 <div class="row">
-                                    <div class="col-sm-2 form-group"></div>
                                     <div class="col-sm-6 form-group">
                                         <button type="button" class="btn btn-light">Documentation</button>
                                     </div>
 
                                     <div class="col-sm-2    form-group">
                                         <button id = "run" type="button" class="btn btn-light">RUN</button>
+                                    </div>
+                                    <div class="col-sm-2    form-group">
+                                        <div id = "loader" class="loader" style = "display: none;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -258,11 +260,13 @@
                     </section>
                 </div>
             </div>
+        
 
             <div id = "result_div" class="col-md-6 col-sm-12 col-lg-6 resultPart">
                 <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 <div id="chart_div"></div> -->
-                <canvas id="result_canvas" width="200" height="100"></canvas> <!-- change with real sizes --> 
+                
+                <canvas id="result_canvas" width="200" height="100"></canvas>
             </div>
         </div>
     </div>
