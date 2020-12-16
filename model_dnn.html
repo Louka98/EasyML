@@ -13,8 +13,11 @@
           integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navBarUser.css">
     <link rel="stylesheet" href="algorithms.css">
+    <link rel="stylesheet" href="Documentation.css">
     <link rel="stylesheet" href="model.css">
+
 
     <!--<link rel="stylesheet" href="model.css">-->
 
@@ -54,7 +57,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-content-center mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link menuLink" href="#documentation">Documentation </a>
+                <a class="nav-link menuLink" href="Documentation.html">Documentation</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link menuLink" href="#footer">About us</a>
@@ -83,189 +86,190 @@
 
 
 <!-- Hero -->
-<div class="">
-    <div class="container hero border-bottom">
-        <div class="row">
-            <div class="col-md-1 col-sm-12 col-lg-1 resultPart"></div>
-            <div class="col-md-3 col-sm-12 col-lg-3 algoForm">
-                <div class="text">
-                    <section class="row">
-                        <div class="col-xs-12">
+<div class="container-fluid heroDoc">
+    <div class="row">
+        <div class="col-md-3 col-sm-12 col-lg-3 ">
+            <!-- row 1 -->
+            <div class="row blueBackground inputBar">
+                <h1 class="typeAlgo">
+                    Deep Learning
+                </h1>
+                <!-- row 2 -->
 
-                            <h1 class="h1Index pt-2 pb-2 mt-2 mb-2 text-center text-light">
-                                Supervised Learning DNN
-                            </h1>
+                <hr class="line">
+                <div class="row blueBackground doc">
 
+                    <div class=" mb-3 form-group">
+                        <div class="row">
+                            <!-- Data upload -->
 
-                            <div class=" mb-3 form-group">
-                                <div class="row">
-                                        <!-- Data upload -->
+                            <input type="file" name="inputfile" id="inputfile">
 
-                                        <input type="file" name="inputfile" id="inputfile">
+                            <!-- end Data upload -->
 
-                                        <!-- end Data upload -->
+                            <!-- file upload button -->
+                            <!-- <pre id="output"></pre> -->
 
-                                        <!-- file upload button -->
-                                        <!-- <pre id="output"></pre> -->
+                        </div>
+                    </div>
 
-                                </div>
+                    <div class=" mb-3 form-group">
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <p class="label">Algorithm</p>
+                                <select class="browser-default custom-select form-control" id = "model_type">
+                                    <option value="" disabled selected>Select an algorithm</option>
+                                    <option value="binary" >Binary classification</option>
+                                    <option value="multi_label">Multi Label classification</option>
+                                    <option value="multi_class">Multi Class classification</option>
+                                </select>
                             </div>
-
-                            <div class=" mb-3 form-group">
-                                <div class="row">
-                                    <div class="col-sm-12 form-group">
-                                        <p class="label">Algorithm</p>
-                                        <select class="browser-default custom-select form-control" id = "model_type">
-                                            <option value="" disabled selected>Select an algorithm</option>
-                                            <option value="binary" >Binary classification</option>
-                                            <option value="multi_label">Multi Label classification</option>
-                                            <option value="multi_class">Multi Class classification</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-1 form-group">
-                                    </div>
-                                </div>
+                            <div class="col-sm-1 form-group">
                             </div>
+                        </div>
+                    </div>
 
 
-                            <div class=" mb-3 form-group">
-                                <!-- Table -->
-                                <p class='label'>Layer and number of neural</p>
-                                <table id="layers" class="table">
-                                    <tbody>
-                                    <tr>
-                                        <td><div class="col-sm-3 form-group">
-                                                <i class="material-icons iconInput" style="font-size:36px">layers</i>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input id = "layer0" type="number" min = "1" value ="10" name="num" placeholder="number of neurons"
-                                                  class="form-control"/>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td><div class="col-sm-3 form-group">
-                                                <i class="material-icons iconInput" style="font-size:36px">layers</i>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <input id = "layer1" type="number" min = "1" value = "1" name="num" placeholder="number of neurons"
-                                                  class="form-control"/>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-                                <div class="row">
-                                    <div class="col-sm-6    form-group">
-                                        <button id = "add_layer" type="button" class="btn btn-light widthButton" >Add</button>
-                                    </div>
-                                    <div class="col-sm-6    form-group">
-                                        <button id = "remove_layer" type="button" class="btn btn-light widthButton">Remove</button>
-                                    </div>
+                    <div class=" mb-3 form-group">
+                        <!-- Table -->
+                        <p class='label'>Layer and number of neural</p>
+                        <table id="layers" class="table">
+                            <tbody>
+                            <tr>
+                                <td><div class="col-sm-3 form-group">
+                                    <i class="material-icons iconInput" style="font-size:36px">layers</i>
                                 </div>
+                                </td>
+                                <td>
+                                    <input id = "layer0" type="number" min = "1" value ="10" name="num" placeholder="number of neurons"
+                                           class="form-control"/>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td><div class="col-sm-3 form-group">
+                                    <i class="material-icons iconInput" style="font-size:36px">layers</i>
+                                </div>
+                                </td>
+                                <td>
+                                    <input id = "layer1" type="number" min = "1" value = "1" name="num" placeholder="number of neurons"
+                                           class="form-control"/>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row">
+                            <div class="col-sm-6    form-group">
+                                <button id = "add_layer" type="button" class="btn btn-light widthButton" >Add</button>
                             </div>
-
-                            <div class=" mb-3 form-group">
-                                <div class="row">
-                                    <p class='label'>Act func</p>
-                                    <div class="col-sm-12 form-group">
-                                        <select class="browser-default custom-select form-control" id = "act_func">
-                                            <option value="" disabled selected>Select an activation function</option>
-                                            <option value="sigmoid" >sigmoid</option>
-                                            <option value="softmax">softmax</option>
-                                            <option value="relu">relu</option>
-                                            <option value="selu">selu</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p class='label'>Hidden act func</p>
-                                    <div class="col-sm-12 form-group">
-                                        <select class="browser-default custom-select form-control" id = "hidden_act_func">
-                                            <option value="" disabled selected>Select a hidden activation function</option>
-                                            <option value="sigmoid" >sigmoid</option>
-                                            <option value="softmax">softmax</option>
-                                            <option value="relu" >relu</option>
-                                            <option value="selu">selu</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p class='label'>Loss</p>
-                                    <div class="col-sm-12 form-group">
-                                        <select class="browser-default custom-select form-control" id = "loss">
-                                            <option value="" disabled selected>Select a hidden activation function</option>
-                                            <option value="binary_crossentropy" >binary crossentropy</option>
-                                            <option value="categorical_crossentropy">categorical crossentropy</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p class='label'>Target column</p>
-                                    <div class="col-sm-12 form-group">
-                                        <input id = "target" type="text" name="target" placeholder="name of target column"
-                                                  class="form-control"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p class='label'>Categorical columns</p>
-                                    <div class="col-sm-12 form-group">
-                                        <input id = "categorical" type="text" name="categorical" placeholder="column1, column2, ..."
-                                                  class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <p class='label'>Epochs</p>
-                                    <div class="col-sm-12 form-group">
-                                        <input id = "epochs" type="number" min = "1" name="epochs" value = "10"
-                                                  class="form-control"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p class='label'>Test size</div>
-                                    <div class="col-sm-12 form-group">
-                                        <input id = "test_size" type="number" min = "0.1" name="test_size" value = "0.1" max = "0.99" step="0.01"
-                                                  class="form-control"/>
-                                    </div>
-                                </div>
+                            <div class="col-sm-6    form-group">
+                                <button id = "remove_layer" type="button" class="btn btn-light widthButton">Remove</button>
                             </div>
+                        </div>
+                    </div>
 
-                        <div class=" mb-3 form-group">
-                            <div class="row">
-                                <div class="col-sm-6 form-group">
-                                    <button type="button" class="btn btn-light widthButton" >Documentation</button>
-                                </div>
-
-                                <div class="col-sm-3 form-group">
-                                    <button type="button" class="btn btn-light widthButton" >Run</button>
-                                </div>
-                                <div class="col-sm-3 form-group">
-                                    <button type="button" class="btn btn-light widthButton">Save</button>
-                                </div>
+                    <div class=" mb-3 form-group">
+                        <div class="row">
+                            <p class='label'>Act func</p>
+                            <div class="col-sm-12 form-group">
+                                <select class="browser-default custom-select form-control" id = "act_func">
+                                    <option value="" disabled selected>Select an activation function</option>
+                                    <option value="sigmoid" >sigmoid</option>
+                                    <option value="softmax">softmax</option>
+                                    <option value="relu">relu</option>
+                                    <option value="selu">selu</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class='label'>Hidden act func</p>
+                            <div class="col-sm-12 form-group">
+                                <select class="browser-default custom-select form-control" id = "hidden_act_func">
+                                    <option value="" disabled selected>Select a hidden activation function</option>
+                                    <option value="sigmoid" >sigmoid</option>
+                                    <option value="softmax">softmax</option>
+                                    <option value="relu" >relu</option>
+                                    <option value="selu">selu</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class='label'>Loss</p>
+                            <div class="col-sm-12 form-group">
+                                <select class="browser-default custom-select form-control" id = "loss">
+                                    <option value="" disabled selected>Select a hidden activation function</option>
+                                    <option value="binary_crossentropy" >binary crossentropy</option>
+                                    <option value="categorical_crossentropy">categorical crossentropy</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class='label'>Target column</p>
+                            <div class="col-sm-12 form-group">
+                                <input id = "target" type="text" name="target" placeholder="name of target column"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class='label'>Categorical columns</p>
+                            <div class="col-sm-12 form-group">
+                                <input id = "categorical" type="text" name="categorical" placeholder="column1, column2, ..."
+                                       class="form-control"/>
                             </div>
                         </div>
 
+                        <div class="row">
+                            <p class='label'>Epochs</p>
+                            <div class="col-sm-12 form-group">
+                                <input id = "epochs" type="number" min = "1" name="epochs" value = "10"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class='label'>Test size</div>
+                        <div class="col-sm-12 form-group">
+                            <input id = "test_size" type="number" min = "0.1" name="test_size" value = "0.1" max = "0.99" step="0.01"
+                                   class="form-control"/>
+                        </div>
+                    </div>
+                </div>
 
+                <div class=" mb-3 form-group">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <button type="button" class="btn btn-light widthButton" >Documentation</button>
+                        </div>
 
-
-
-                    </section>
+                        <div class="col-sm-3 form-group">
+                            <button type="button" class="btn btn-light widthButton" >Run</button>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <button type="button" class="btn btn-light widthButton">Save</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div id = "result_div" class="col-md-6 col-sm-12 col-lg-6 resultPart">
-                <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <div id="chart_div"></div> -->
-                <canvas id="result_canvas" width="200" height="100"></canvas> <!-- change with real sizes -->
-            </div>
+
+
+
+
         </div>
+        <div class="col-md-9 col-sm-12 col-lg-9 vertical-center ">
+            <!--<div class="loader"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <div id="chart_div"></div>
+            -->
+            <!-- <div class="doc">  IMAGES OF THE RESULT </div>-->
+        </br></br>
     </div>
 </div>
 
+
 <!-- end hero -->
+
 
 <!-- Footer -->
 <div class="container sign-up pt-5 footer border-bottom" id="footer">
@@ -297,7 +301,7 @@
 
                     <div class="row">
                         <div class="col-sm-9 form-group">
-                            <input id ="email" type="email" name="email" placeholder="Email Address"
+                            <input type="email" name="email" placeholder="Email Address"
                                    class="form-control form-control-lg"/>
                         </div>
                         <div class="col-sm-3 form-group">
@@ -344,5 +348,6 @@
 
 </body>
 
+<script src="model.js"></script>
 <script src="model_dnn.js"></script>
 </html>

@@ -1,10 +1,6 @@
-/* init
-* {
-    font-family: 'Roboto', sans-serif;
-}
-*/
 body {
     padding-top: 70px;
+    height: 100%;
 }
 /* fix padding under menu after resize */
 @media screen and (max-width: 767px) {
@@ -54,11 +50,7 @@ h1 {
     padding-right: 1%;
 }
 
-/*SignUp*/
-/*
-#signUpButton{
-    color: #FF4F5A;
-}*/
+
 .errorMsg{
     color: red;
 }
@@ -79,15 +71,21 @@ h1 {
     color: red;
 
 }
-/*****/
+.docButton{
+    margin-bottom: 3%;
+}
+/******************************************************/
 
 
 .logo {
     color: #f4511e;
     font-size: 200px;
 }
+/*++++++++++------------------------------------------------------------------------*/
 .container-fluid {
-    padding: 60px 50px;
+    height: 100vh;
+    overflow: auto;
+    margin-top: 25%;
 }
 glyphicon {
     font-size: 20px;

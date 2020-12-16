@@ -16,3 +16,31 @@
 
 .widthButton{
     width: 100%;}
+
+.typeAlgo{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+
+}
+
+
+.line{
+    border: 2px solid white;
+    width: 90%;
+
+}
+
+.loader {
+    border: 16px solid #EBEBEB; /* Light grey */
+    border-top: 16px solid #0063B3; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,37 @@
+.imgUser {
+    border-radius: 50%;
+}
+
+.imgUserProfile{
+    height: 6%;
+    width: 22%;
+    margin-top: -10%;
+    margin-left: -12%;
+    margin-bottom: 2%;
+    border: 7px solid #343A40;
+    padding:0px;
+}
+.profileForm{
+    margin-top: 9%;
+    border-radius: 1%;
+    width: 60%;
+    border: 7px solid #343A40;
+    padding:0px;
+}
+
+.vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Gform{
+    margin-top: 10%;
+}
+
+.GformB{
+    margin-top: 8%;
+}
+.inputsForm{
+    margin-right: 3%;
+}

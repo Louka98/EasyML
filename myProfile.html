@@ -16,17 +16,12 @@
     <link rel="stylesheet" href="navBarUser.css">
     <link rel="stylesheet" href="algorithms.css">
     <link rel="stylesheet" href="Documentation.css">
-    <link rel="stylesheet" href="model.css">
 
 
-    <!--<link rel="stylesheet" href="model.css">-->
 
     <!-- fonts google -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
           rel="stylesheet">
-    <!-- icon google -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -57,7 +52,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-content-center mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link menuLink" href="Documentation.html">Documentation</a>
+                <a class="nav-link menuLink" href="#documentation">Documentation </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link menuLink" href="#footer">About us</a>
@@ -85,76 +80,85 @@
 <!-- end nav -->
 
 
-<!-- Hero -->
-<div class="container-fluid heroDoc">
-    <div class="row">
-        <div class="col-md-3 col-sm-12 col-lg-3 ">
-            <!-- row 1 -->
-            <div class="row blueBackground inputBar">
-                <h1 class="typeAlgo">
-                    Supervised Learning
-                </h1>
-                <!-- row 2 -->
 
-                <hr class="line">
-                <div class="row blueBackground doc">
-                    <!-- row 1-->
-                    <div class="col-sm-2 form-group">
-                        <i class="material-icons iconInput" style="font-size:36px">file_download</i>
-                    </div>
-                    <div class="col-sm-10 form-group">
-                        <fieldset>
-                            <input type="file" name="File Upload" id="txtFileUpload" accept=".csv"/>
-                        </fieldset>
-                    </div>
-                    <!-- row 2-->
-                    <div class=" mb-3 form-group" id="algorithmGroup">
-                        <p class="label">Algorithm</p>
-                        <select class="browser-default custom-select form-control" id="algorithm">
-                            <option value="" disabled selected>Select an algorithm</option>
-                            <option value="DT">Decision Tree</option>
-                            <option value="kNN">K-Nearest Neighbour</option>
-                            <option value="logisticRegression">Logistic Regression</option>
-                            <option value="RF">Random forest</option>
-                            <option value="RC">Ridge classifier</option>
-                            <option value="supportVectorMachine">Support Vector Machine</option>
-                            <option value="V">Voting</option>
-                        </select>
-                    </div>
-                    <!-- row 3-->
-                    <span id="algorithmInput"></span>
-                    <!-- row 4-->
-                    <div class="col-sm-6 form-group">
-                        <a href="Documentation.html">
-                            <button type="button" class="btn btn-light widthButton">Documentation</button>
-                        </a>
-                    </div>
-                    <div class="col-sm-3 form-group">
-                        <button type="button" class="btn btn-light widthButton">Run</button>
-                    </div>
-                    <div class="col-sm-3 form-group">
-                        <button type="button" class="btn btn-light widthButton">Save</button>
-                    </div>
+
+
+
+<div class="container justify-content-center blueBackground profileForm">
+    <!-- row 0 -->
+    <div class="row ">
+        <img src="Images/user.png" class="imgUser imgUserProfile" >
+
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <h1>User Name Profile</h1>
+        </div>
+    </div>
+    <!-- row 1 -->
+    <div class="row inputsForm">
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <p class="label">User name</p>
+            <input type="text" name="userName" placeholder="User Name" id="userNameLogin"
+                   class="form-control form-control-lg" required>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <p class="label">Email</p>
+            <input type="email" name="addressMail" placeholder="Address mail" id="emailAddress" class="form-control form-control-lg"
+                   required>
+        </div>
+    </div>
+    <!-- row 2 -->
+    <div class="row inputsForm">
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <p class="label">Fields</p>
+            <input type="text" name="fields" placeholder="Field" id="field" class="form-control form-control-lg"
+                   required>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <p class="label">Level</p>
+            <select class="browser-default custom-select form-control form-control-lg">
+                <option value="" disabled selected>Select your option</option>
+                <option value="phd" selected>PhD</option>
+                <option value="edd">EdD</option>
+                <option value="m2">Msc 2</option>
+                <option value="m1">Msc 1</option>
+                <option value="b3">Bsc 3</option>
+                <option value="b2">Bsc 2</option>
+                <option value="b1">Bsc 1</option>
+            </select>
+        </div>
+    </div>
+    <!-- row 3 -->
+    <div class="row inputsForm">
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <p class="label">Birthday</p>
+            <input type="date" id="datapicker" class="form-control form-control-lg" required>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <div class="row">
+                <p class="errorMsg" id="errorGender">This is a required field ! choose one</p>
+                <p class="col-sm-3 Gform" >Gender : </p>
+                <div class="col-sm-3 Gform">
+                    <label class="form-check-label" for="male">
+                        <input type="radio" class="form-check-input" id="male" name="gender" value="Male" checked>Male
+                    </label>
                 </div>
-
+                <div class="col-sm-3 Gform">
+                    <label class="form-check-label" for="female">
+                        <input type="radio" class="form-check-input" id="female" name="gender" value="Female">Female
+                    </label>
+                </div>
+                <div class="col-sm-3 GformB">
+                    <button type="button" class="btn btn-light widthButton">Save</button>
+                </div>
             </div>
-
         </div>
-        <div class="col-md-9 col-sm-12 col-lg-9 vertical-center">
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-            </div>
-            <!--
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <div id="chart_div"></div>
-            -->
-        </div>
-        </br></br>
     </div>
 </div>
 
 
-<!-- end hero -->
+
+
+
 
 
 <!-- Footer -->
@@ -234,7 +238,5 @@
 
 </body>
 
-<script src="model.js"></script>
-<script src="model0.js"></script>
-<script src="modelSupervisedLearning.js"></script>
+<script src="index.js"></script>
 </html>

@@ -13,6 +13,7 @@
           integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navBarUser.css">
     <link rel="stylesheet" href="algorithms.css">
     <link rel="stylesheet" href="Documentation.css">
 
@@ -49,7 +50,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-content-center mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link menuLink" href="#documentation">Documentation </a>
+                <a class="nav-link menuLink" href="algorithms.html">Algorithms</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link menuLink" href="#footer">About us</a>
@@ -76,66 +77,104 @@
 </nav>
 <!-- end nav -->
 
-
 <!-- Hero -->
-<div class="container hero border-bottom">
+<div class="container-fluid heroDoc">
     <div class="row">
-        <div class="col-md-6 col-sm-12 col-lg-6 doc">
-            <header class="blueBackground">
+        <div class="col-md-6 col-sm-12 col-lg-6">
+            <!-- row 1 -->
+            <div class="row blueBackground">
                 <h1>Documentation</h1>
-            </header>
+            </div>
+            <!-- row 2 -->
+            <div class="row">
+                <div class="col-sm-3 form-group">
+                    <p class="labelAlgo">Algorithm : </p>   
+                </div>
+                <div class="col-sm-9    form-group" id="algo">
+                    <select class="browser-default custom-select form-control" id="algorithm">
+                        <option value="DT" selected>Decision Tree</option>
+                        <option value="kNN">K-Nearest Neighbour</option>
+                        <option value="logisticRegression">Logistic Regression</option>
+                        <option value="RF">Random forest</option>
+                        <option value="RC">Ridge classifier</option>
+                        <option value="supportVectorMachine">Support Vector Machine</option>
+                        <option value="V">Voting</option>
+                    </select>
 
-            <body>
-            <p class="docText">
-                <h4 class="blueTextHero">K-means clustering </h4> is one of the simplest and popular unsupervised machine learning algorithms.</br>
+                </div>
+            </div>
+
+            <!-- row 3 -->
+            <div class="row doc docText">
+                This algorithm is one of the simplest and popular unsupervised machine learning algorithms.</br>
                 You’ll define a target number </br>
                 k: which refers to the number of centroids you need in the dataset. </br>
                 A centroid : the imaginary or real location representing the center of the cluster.</br>
-                Every data point is allocated to each of the clusters through reducing the in-cluster sum of
+                Every data point is allocated to each of the clusters through reducing the in-cluster
+                sum of
                 squares.</br>
-                In other words, the K-means algorithm identifies k number of centroids, and then allocates every data
+                In other words, the K-means algorithm identifies k number of centroids, and then
+                allocates every data
                 point to the nearest cluster, while keeping the centroids as small as possible.</br>
-                The ‘means’ in the K-means refers to averaging of the data; that is, finding the centroid.</br>
-                To process the learning data, the K-means algorithm in data mining starts with a first group of randomly
-                selected centroids, which are used as the beginning points for every cluster, and then performs
+                The ‘means’ in the K-means refers to averaging of the data; that is, finding the
+                centroid.</br>
+                To process the learning data, the K-means algorithm in data mining starts with a first
+                group of randomly
+                selected centroids, which are used as the beginning points for every cluster, and then
+                performs
                 iterative (repetitive) calculations to optimize the positions of the centroids</br>
-                It halts creating and optimizing clusters when either: The centroids have stabilized — there is no
+                It halts creating and optimizing clusters when either: The centroids have stabilized —
+                there is no
                 change in their values because the clustering has been successful.</br>
                 The defined number of iterations has been achieved. </br> </br>
 
 
                 <h5> Picture :</h5>
-            </p>
-            <ul>
-                <li>Figure 1 shows the representation of data of two different items. the first item has shown in blue
-                    color and the second item has shown in red color. Here I am choosing the value of K randomly as 2.
-                    There are different methods by which we can choose the right k values.
-                </li>
-                <li>In figure 2, Join the two selected points. Now to find out centroid, we will draw a perpendicular
-                    line to that line. The points will move to their centroid. If you will notice there, then you will
-                    see that some of the red points are now moved to the blue points. Now, these points belong to the
-                    group of blue color items.
-                </li>
-                <li>The same process will continue in figure 3. we will join the two points and draw a perpendicular
-                    line to that and find out the centroid. Now the two points will move to its centroid and again some
-                    of the red points get converted to blue points.
-                </li>
-                <li>The same process is happening in figure 4. This process will be continued until and unless we get
-                    two completely different clusters of these groups.
-                </li>
-            </ul>
-            </br>
-            <h5> Video :</h5>
-            <iframe class="video" src="https://www.youtube.com/embed/4b5d3muPQmA" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </iframe>
-            </br></br>
-            </body>
+                </p>
+                <ul>
+                    <li>Figure 1 shows the representation of data of two different items. the first item
+                        has shown in
+                        blue
+                        color and the second item has shown in red color. Here I am choosing the value
+                        of K randomly as
+                        2.
+                        There are different methods by which we can choose the right k values.
+                    </li>
+                    <li>In figure 2, Join the two selected points. Now to find out centroid, we will
+                        draw a
+                        perpendicular
+                        line to that line. The points will move to their centroid. If you will notice
+                        there, then you
+                        will
+                        see that some of the red points are now moved to the blue points. Now, these
+                        points belong to
+                        the
+                        group of blue color items.
+                    </li>
+                    <li>The same process will continue in figure 3. we will join the two points and draw
+                        a perpendicular
+                        line to that and find out the centroid. Now the two points will move to its
+                        centroid and again
+                        some
+                        of the red points get converted to blue points.
+                    </li>
+                    <li>The same process is happening in figure 4. This process will be continued until
+                        and unless we
+                        get
+                        two completely different clusters of these groups.
+                    </li>
+                </ul>
+                </br>
+                <h5> Video :</h5>
+                <iframe class="video" src="https://www.youtube.com/embed/4b5d3muPQmA" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </iframe>
+                </br></br>
+            </div>
         </div>
-
-        <div class="col-md-6 col-sm-12 col-lg-6 docImg ">
-            <img src="https://editor.analyticsvidhya.com/uploads/34513k%20means.png" class="img-fluid"/>
+        <div class="col-md-6 col-sm-12 col-lg-6 vertical-center">
+            <img src="https://editor.analyticsvidhya.com/uploads/34513k%20means.png" width="100%">
         </div>
         </br></br>
     </div>
@@ -153,12 +192,18 @@
             <div class="pt-5 about-us">
                 <h1 class="text-primary">About Us</h1>
                 <p class="text-muted" style="text-align: justify;">
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look like
-                    readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                    default model text, and a search for 'lorem ipsum' will uncover many web sites still in their
-                    infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
+                    It is a long established fact that a reader will be distracted by the readable content of a
+                    page
+                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                    normal
+                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    like
+                    readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum
+                    as their
+                    default model text, and a search for 'lorem ipsum' will uncover many web sites still in
+                    their
+                    infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
+                    purpose
                     (injected humour and the like).
                 </p>
             </div>
@@ -169,7 +214,8 @@
                 <h1 class="text-primary">Get in touch</h1>
                 <form>
                     <div class="mb-3">
-                        <textarea placeholder="Type here" class="form-control-lg form-control" rows="3"></textarea>
+                                <textarea placeholder="Type here" class="form-control-lg form-control"
+                                          rows="3"></textarea>
                     </div>
 
                     <div class="row">
