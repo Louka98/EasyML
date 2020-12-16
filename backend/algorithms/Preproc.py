@@ -30,6 +30,7 @@ class CustomPreprocess:
         return data
 
     def onehotencoder(self,data,categ_col_names: List[str]):
+        categ_col_names = categ_col_names[0].split(',')
         for x in data.columns:
             if x in categ_col_names:
                 le = preprocessing.LabelEncoder()
@@ -53,6 +54,7 @@ class CustomPreprocess:
 
     def type_convert(self, data, target_column, categ_col_names):
         '''try to convert the rows of the data to float, skipping the categorical datas'''
+        categ_col_names = categ_col_names[0].split(',')
         for x in data.columns:
             try:
                 print(categ_col_names)

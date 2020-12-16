@@ -17,13 +17,15 @@ class clustering:
         self.model = None
         
     def nclusters(self, data):
-        scores=[]
+        sil_scores=[]
+        wcss = []
         for x in range(2,20):
             kmeans=KMeans(n_clusters=x)
             kmeans.fit(data)
             score = silhouette_score(data, kmeans.labels_, metric='euclidean')
-            scores.append(score)
-        return np.argmax(scores)+2
+            sil_scores.append(score)
+            wcss.append(kmeans.inertia_)
+        return np.argmax(sil_scores)+2, sil_scores, wcss
   
     def kmeans(self, n_clusters=3):
        self.model= KMeans(n_clusters=n_clusters) #creating model
@@ -43,7 +45,7 @@ class clustering:
         
     def train(self,data):
         model = self.model.fit(data)
-        data['Labels'] = self.model.labels_     #Result
+        #data['Labels'] = self.model.labels_     #Result
         return model
     
     def pred(self,ex):

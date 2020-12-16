@@ -2,6 +2,37 @@ $(document).ready(function() {
 
     var dat;
 
+    $('#model_type').change(function() {
+        console.log("asdasd")
+        var act_func = document.getElementById("act_func");
+        var hidden_act_func = document.getElementById("hidden_act_func");
+        var loss = document.getElementById("loss");
+        var layers = document.getElementsByName("num");
+        var last_layer = layers[layers.length-1];
+
+        if($(this).val() == "binary")
+        {
+            act_func.value = "sigmoid";
+            hidden_act_func.value = "relu";
+            loss.value = "binary_crossentropy";
+            last_layer.value = 1;
+        }
+        if($(this).val() == "multi_class")
+        {
+            act_func.value = "softmax";
+            hidden_act_func.value = "relu";
+            loss.value = "categorical_crossentropy";
+            last_layer.value = 2;
+        }
+        if($(this).val() == "multi_label")
+        {
+            act_func.value = "sigmoid";
+            hidden_act_func.value = "relu";
+            loss.value = "binary_crossentropy";
+            last_layer.value = 2;
+        }
+      });
+
     $('#add_layer').click(function(){
         var tbodyRef = document.getElementById('layers').getElementsByTagName('tbody')[0];
 
@@ -19,6 +50,7 @@ $(document).ready(function() {
         var index = document.getElementById('layers').getElementsByTagName('input').length;
         // Append a text node to the cell
         var newInput = document.createElement("INPUT");
+        newInput.required = true;
         newInput.setAttribute("type", "number");
         newInput.setAttribute("id", "layer" + index);
         newInput.setAttribute("name", "num");
@@ -41,6 +73,65 @@ $(document).ready(function() {
     });
 
     $('#run').click(function(){
+        //VALIDATION
+        $("#error_msg").hide();
+        $("#error_msg_layers").hide();
+
+        inputfile = document.getElementById("inputfile");
+        if(!inputfile.checkValidity())
+        {
+            $("#error_msg").show();
+                document.getElementById("error_msg").innerHTML = "input file: " + inputfile.validationMessage;
+                return;
+        }
+
+        var layer_inputs = document.getElementsByName("num")
+        for (let inp of layer_inputs)
+        {
+            if (!inp.checkValidity()) {
+                $("#error_msg_layers").show();
+                document.getElementById("error_msg_layers").innerHTML = inp.id +" "+ inp.validationMessage;
+                return;
+            }
+        }
+
+        var target = document.getElementById("target");
+        if(!target.checkValidity() || !dat[0].includes(target.value))
+        {
+            $("#error_msg").show();
+            document.getElementById("error_msg").innerHTML = "Please specify a valid target colum name!";
+            return; 
+        }
+
+        var categorical = document.getElementById("categorical").value;
+        var cat = categorical.split(",");
+        for(let e of cat)
+        {
+            if(!dat[0].includes(e) && cat[0] != "")
+            {
+                $("#error_msg").show();
+                document.getElementById("error_msg").innerHTML = "Please specify a valid categorical colum name!";
+                return; 
+            }
+        }
+        
+        epochs = document.getElementById("epochs");
+        if(!epochs.checkValidity())
+        {
+            $("#error_msg").show();
+                document.getElementById("error_msg").innerHTML = "epochs: " + epochs.validationMessage;
+                return;
+        }
+
+        test_size = document.getElementById("test_size");
+        if(!test_size.checkValidity())
+        {
+            $("#error_msg").show();
+                document.getElementById("error_msg").innerHTML = "test size: " + test_size.validationMessage;
+                return;
+        }
+
+        //END VALIDATION
         var data = [];
         var target_column = "";
         var layers = []; 
@@ -118,25 +209,7 @@ $(document).ready(function() {
             for (let index = 0; index < lines.length; index++) {
                 lines[index] = lines[index].split(",")
             }
-
-            localStorage.setItem("dataset",lines)
-            dat = lines
-            // var data = JSON.stringify({ "model_type": "nn_binary_classification", "dataset": lines, "layers": 5, "neurons": 20 })
-    
-            // var settings = {
-            //     "url": "http://127.0.0.1:5000/model/train",
-            //     "method": "POST",
-            //     "timeout": 0,
-            //     "headers": {
-            //       "x-access-token": localStorage.token,
-            //       "Content-Type": "application/json"
-            //     },
-            //     "data": data,
-            //   };
-    
-            //   $.ajax(settings).done(function (response) {
-            //     console.log(response);
-            //   });
+            dat = lines;
     
         }
     
