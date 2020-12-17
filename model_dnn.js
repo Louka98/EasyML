@@ -177,11 +177,11 @@ $(document).ready(function() {
               };
               
 
-              $.ajax(settings).done(function (response) {
+              $.ajax(settings, function (response) {
+
+              }).done( function(response){
                 console.log(response);
                 
-                
-
                 var canvas = document.getElementById("result_canvas"); 
                 canvas.width  = response["width"];
                 canvas.height = response["height"];
@@ -202,14 +202,17 @@ $(document).ready(function() {
                     } 
                 }  
 
-                var x = document.getElementById("loader");
-                document.getElementById("run").disabled = false ;
-                    if (x.style.display === "none") {
-                        x.style.display = "block";
-                    } else {
-                        x.style.display = "none";
-                    }
-
+              }).fail(function(response){
+                    $("#error_msg").show();
+                    document.getElementById("error_msg").innerHTML = "Invalid input file";
+              }).always(function(response){
+                        var x = document.getElementById("loader");
+                        document.getElementById("run").disabled = false;
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
               });
         // $('#result').text(JSON.stringify(data)) 
         //return false;

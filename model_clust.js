@@ -96,10 +96,10 @@ $(document).ready(function() {
                 "data": data,
               };
     
-              $.ajax(settings).done(function (response) {
-                console.log(response);
+              $.ajax(settings, function (response) {
 
-                
+              }).done(function(response){
+                console.log(response);
 
                 var div = document.getElementById("result_div");
                 div.setAttribute("style","height:1000px");
@@ -145,15 +145,17 @@ $(document).ready(function() {
                         ctx.fillRect( j, i, 1, 1 ); 
                     } 
                 }
-
-                var x = document.getElementById("loader");
-                document.getElementById("run").disabled = false ;
+              }).fail(function(response){
+                $("#error_msg").show();
+                document.getElementById("error_msg").innerHTML = "Invalid input file";
+              }).always(function(response){
+                    var x = document.getElementById("loader");
+                    document.getElementById("run").disabled = false;
                     if (x.style.display === "none") {
                         x.style.display = "block";
                     } else {
                         x.style.display = "none";
                     }
-
               });
         // $('#result').text(JSON.stringify(data)) 
         //return false;
