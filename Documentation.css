@@ -1,0 +1,49 @@
+.blueBackground{
+    background-color: #0063b3;
+    color: white;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-top: 1%;
+    margin-bottom: 3%;
+
+}
+.heroDoc{
+  margin-top: -1%;
+    height: 100%;
+}
+
+
+.labelAlgo{
+    color: #0063b3;
+    font-size: 150%;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+.doc{
+   height: 500px;
+    overflow: auto;
+    left: 0;
+    overflow-x : hidden
+}
+
+
+.docText{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.docImg{
+    padding-top: 8%;
+
+}
+
+.video{
+    width : 90%;
+    height : 65%;
+    margin-left: 3%;
+}
+
+
+
+
