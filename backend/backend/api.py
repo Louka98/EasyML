@@ -132,25 +132,27 @@ def train(current_user):
     data = request.get_json()
     print(data)
     preproc = CustomPreprocess()
+    try:
+        if data['model_type'] == "nn_custom":
+            X_train, X_test, y_trian, y_test = preproc.transform(data['dataset'], data['target_column'], data['cat_cols'], data['test_size'], data['loss'], data['layers'][-1])
+            data['input_shape'] = X_train.shape[1:]
+            model = init_model(**data)
+            print(model.model.summary())
+            hist = train_model(model, X_train, y_trian, X_test, y_test, **data).history
+            hist['image'], hist['height'], hist['width'] = create_plot(data['model_type'],hist)
+        
+        elif data['model_type'] in cluster_alg_names: 
+            X_train = preproc.transform(data['dataset'], "", data['cat_cols'], 0)
+            data['dataset'] = X_train
+            model = init_model(**data)
+            hist = train_model(model, X_train, None, None, None, **data)
+            _, hist['sil_score'], hist['wcss'] = model.nclusters(X_train)
+            X_train['labels'] = hist['labels']
+            hist['image'], hist['height'], hist['width'], hist['image2'], hist['height2'], hist['width2'] = create_plot(data['model_type'],hist, data = X_train)
 
-    if data['model_type'] == "nn_custom":
-        X_train, X_test, y_trian, y_test = preproc.transform(data['dataset'], data['target_column'], data['cat_cols'], data['test_size'], data['loss'], data['layers'][-1])
-        data['input_shape'] = X_train.shape[1:]
-        model = init_model(**data)
-        print(model.model.summary())
-        hist = train_model(model, X_train, y_trian, X_test, y_test, **data).history
-        hist['image'], hist['height'], hist['width'] = create_plot(data['model_type'],hist)
-    
-    elif data['model_type'] in cluster_alg_names: 
-        X_train = preproc.transform(data['dataset'], "", data['cat_cols'], 0)
-        data['dataset'] = X_train
-        model = init_model(**data)
-        hist = train_model(model, X_train, None, None, None, **data)
-        _, hist['sil_score'], hist['wcss'] = model.nclusters(X_train)
-        X_train['labels'] = hist['labels']
-        hist['image'], hist['height'], hist['width'], hist['image2'], hist['height2'], hist['width2'] = create_plot(data['model_type'],hist, data = X_train)
-
-    return jsonify(hist)
+        return jsonify(hist)
+    except:
+        return jsonify({'message' : 'Bad request'}),status.HTTP_400_BAD_REQUEST
 
 
 @app.route('/user', methods = ['GET'])
