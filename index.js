@@ -238,8 +238,8 @@ $(document).ready(function () {
     //check signup function --------------------------------------------------------------------------------------------
     //check send function ----------------------------------------------------------------------------------------------
 
-    $("#loginForm").validate();
-    $("#SignUpForm").validate();
+    //$("#loginForm").validate();
+    //$("#SignUpForm").validate();
 
 
 });
