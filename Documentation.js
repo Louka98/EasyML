@@ -201,194 +201,150 @@ $(document).ready(function () {
                 $("#textalgo").remove();
                 $("#imgAlgo").remove();
                 $("<div class=\"row doc docText\" id='textalgo'>"+
-                    "In machine learning, we can handle various types of data, e.g. audio signals and pixel values for image data, and this data can include multiple dimensions. Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance. This method is widely used for normalization in many machine learning algorithms (e.g., support vector machines, logistic regression, and artificial neural networks).[2][citation needed] The general method of calculation is to determine the distribution mean and standard deviation for each feature. Next we subtract the mean from each feature. Then we divide the values (mean is already subtracted) of each feature by its standard deviation.\n" +
-                    "\n" +
-                    " \n" +
-                    "\n" +
+                    "<p>In machine learning, we can handle various types of data, e.g. audio signals and pixel values for image data, and this data can include multiple dimensions. Feature standardization makes the values of each feature in the data have zero-mean (when subtracting the mean in the numerator) and unit-variance. This method is widely used for normalization in many machine learning algorithms (e.g., support vector machines, logistic regression, and artificial neural networks).[2][citation needed] The general method of calculation is to determine the distribution mean and standard deviation for each feature. Next we subtract the mean from each feature. Then we divide the values (mean is already subtracted) of each feature by its standard deviation.\n" +
                     "Standardizing the features around the center and 0 with a standard deviation of 1 is important when we compare measurements that have different units. Variables that are measured at different scales do not contribute equally to the analysis and might end up creating a bais.\n" +
-                    "\n" +
-                    " \n" +
-                    "\n" +
-                    "For example, A variable that ranges between 0 and 1000 will outweigh a variable that ranges between 0 and 1. Using these variables without standardization will give the variable with the larger range weight of 1000 in the analysis. Transforming the data to comparable scales can prevent this problem. Typical data standardization procedures equalize the range and/or data variability.\n" +
-                    "{\\displaystyle x'={\\frac {x-{\\bar {x}}}{\\sigma }}}x' = \\frac{x - \\bar{x}}{\\sigma}\n" +
-                    "\n" +
-                    " \n" +
-                    "\n" +
-                    "Where {\\displaystyle x}x is the original feature vector, {\\displaystyle {\\bar {x}}={\\text{average}}(x)}{\\displaystyle {\\bar {x}}={\\text{average}}(x)} is the mean of that feature vector, and {\\displaystyle \\sigma }\\sigma  is its standard deviation.\n" +
-                    "\n" +
-                    " \n" +
-                    "\n" +
-                    "Standardization assumes that your data has a Gaussian (bell curve) distribution. This does not strictly have to be true, but the technique is more effective if your attribute distribution is Gaussian. Standardization is useful when your data has varying scales and the algorithm you are using does make assumptions about your data having a Gaussian distribution, such as linear regression, logistic regression, and linear discriminant analysis."+
-                    +"<h5> Video :</h5>" +
+                   "For example, A variable that ranges between 0 and 1000 will outweigh a variable that ranges between 0 and 1. Using these variables without standardization will give the variable with the larger range weight of 1000 in the analysis. Transforming the data to comparable scales can prevent this problem. Typical data standardization procedures equalize the range and/or data variability.\n" +
+                    "</p><img class='docTextImg imgN' src=\"Images/E1.png\"> <br>" +
+                    "<p>Where x is the original feature vector,</p>" +
+                    "<img class='docTextImg imgN' src=\"Images/E2.png\"><br>" +
+                    " <p>is the mean of that feature vector, and &sigma; is its standard deviation." +
+                    "Standardization assumes that your data has a Gaussian (bell curve) distribution. This does not strictly have to be true, but the technique is more effective if your attribute distribution is Gaussian. Standardization is useful when your data has varying scales and the algorithm you are using does make assumptions about your data having a Gaussian distribution, such as linear regression, logistic regression, and linear discriminant analysis.</p> <br>"+
+                    +"<h5>Video :</h5>" +
                     "<iframe class=\"video\" src=\"https://www.youtube.com/embed/qs8nfzUsW5U\" frameborder=\"0\"" +
                     "allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"" +
                     "allowfullscreen></iframe>" +
-                    "</br>source : <a  href=\"\"></a></br>"
+                    "</br>source : <a  href=\"https://towardsai.net/p/data-science/how-when-and-why-should-you-normalize-standardize-rescale-your-data-3f083def38ff \"></a></br>"
                 ).insertAfter("#algoInput");
                 $("<div class=\"col-md-6 col-sm-12 col-lg-6 vertical-center ImgDoc \" id=\"imgAlgo\">\n" +
                     "     <img src=\"Images/DBSCAN.png\" width=\"90%\">\n" +
                     "        </div>").insertAfter("#firstCol");
                 break;
-           case "S":
-               "</br></br>"
-                $("#textalgo").remove();
-                $("#imgAlgo").remove();
-                $("<div class=\"row doc docText\" id='textalgo'>"+
-                    +"<h5> Video :</h5>" +
-                    "<iframe class=\"video\" src=\"https://www.youtube.com/embed/qs8nfzUsW5U\" frameborder=\"0\"" +
-                    "allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"" +
-                    "allowfullscreen></iframe>" +
-                    "</br></br>"
-                ).insertAfter("#algoInput");
-                $("<div class=\"col-md-6 col-sm-12 col-lg-6 vertical-center ImgDoc \" id=\"imgAlgo\">\n" +
-                    "     <img src=\"Images/DBSCAN.png\" width=\"90%\">\n" +
-                    "        </div>").insertAfter("#firstCol");
-                break;
+
             case "DNN":
                 $("#textalgo").remove();
                 $("#imgAlgo").remove();
                 $("<div class=\"row doc docText\" id='textalgo'>"+
                     "Here you can choose between different pre-defined deep learning classification \n" +
-                    "\tmodels or you can build your own.\n" +
-                    "\tThese models are great when:\n" +
-                    "<ul>\n" +
-                    "   \n" +
-                    "\n" +
-                    "\t   <li>you have labels for your data</li>\n" +
-                    "\t\t<li> the dataset is large</li>\n" +
-                    "</ul>\n" +
-                    "<ul>\n" +
-                    "\tDisadvantages:\n" +
-                    "<ul>\n" +
-                    "\t\t  <li> if you have a small dataset a normal supervised learning algorithm is much better\n" +
-                    "\t\t  <li> the training can take some time\n" +
-                    "</ul>\n" +
-                    "<h5>Model types:</h5>\n" +
-                    "\tBinary classification:\n" +
-                    "<ul>\n" +
-                    "\n" +
-                    "\t\t  <li> use this when you want to categories your data into two categories\n" +
-                    "\tMulti class classification:\n" +
-                    "\t\t  <li> these models should be used when you have multiple classes and one instance </li>\n" +
-                    "</ul>\n" +
-                    "\n" +
-                    "\t\tcan only belong in one class (it can have only one label).\n" +
-                    "\tMulti label:\n" +
-                    "<ul>\n" +
-                    "\n" +
-                    "\t\t  <li> when you want to assign multiple classes to an instance  </li>\n" +
-                    "</ul>\n" +
-                    "\n" +
-                    "<ul>\n" +
-                    "<h5>Model layer architecture:</h5>\n" +
-                    "\n" +
-                    "\tAdding more layers to you neural network can be very useful. If you add layers you increase the number of learnable parameters which can lead to a greater feature recognition ability. \n" +
-                    "\n" +
-                    "\tPay attention to:\n" +
-                    "<ul>\n" +
-                    "\n" +
-                    "\t\t<li> The <b>number of neurons in the last layer</b>. It will determine the number of classes your network can predict. It should<b>always equal to the number of different labels</b> you have in your dataset. </li>\n" +
-                    "\t\t<li> The <b>more layers and neurons</b> you use the <b>greater the training time</b> will take  </li>\n" +
-                    "\t\t\n" +
-                    "</ul>\n" +
-                    "\n" +
-                    "<h5> Activation functions:</h5>\n" +
+                    "models or you can build your own. These models are great when:" +
+                    "<ul>" +
+                    "<ul>" +
+                    "<li>you have labels for your data.</li>" +
+                    "<li> the dataset is large.</li>" +
+                    "</ul>" +
+                    "<b>Disadvantages:</b>" +
+                    "<ul>" +
+                    "<li> if you have a small dataset a normal supervised learning algorithm is much better.</li>" +
+                    "<li> the training can take some time.</li>" +
+                    "</ul>" +
+
+                    "</ul>" +
+
+                    "<h4 class='blueTextHero'>Model types:</h4>" +
+
+                    "<ul>" +
+
+                    "<b>Binary classification:</b>" +
+                    "<ul>" +
+                    "<li> use this when you want to categories your data into two categories<br>" +
+                    "</ul>" +
+
+                    "<b>Multi class classification:</b>" +
+                    "<ul>" +
+                    "<li> these models should be used when you have multiple classes and one instance can only belong in one class (it can have only one label).</li>" +
+                    "</ul>" +
+
+                    "<b>Multi label:</b>" +
+                    "<ul>" +
+                    "<li> when you want to assign multiple classes to an instance</li>" +
+                    "</ul>" +
+
+                    "</ul>" +
+
+
+                    "<h4 class='blueTextHero'>Model layer architecture:</h4>" +
+                    "Adding more layers to you neural network can be very useful. If you add layers you increase the number of learnable parameters which can lead to a greater feature recognition ability. \n" +
+                    "Pay attention to:" +
+                    "<ul>" +
+                    "<ul>" +
+                    "<li> The <b>number of neurons in the last layer</b>. It will determine the number of classes your network can predict. It should<b>always equal to the number of different labels</b> you have in your dataset. </li>\n" +
+                    "<li> The <b>more layers and neurons</b> you use the <b>greater the training time</b> will take  </li>\n" +
+                    "</ul>" +
+                    "</ul>" +
+                    "<h5> Activation functions:</h5>" +
                     "\tThe activation function you can use for the last layer of the neural network or in the hidden layers.\n" +
-                    "<h5> sigmoid:</h5>\n" +
-                    "Use this for binary or multi label models.\n" +
-                    "sigmoid(x) =...\n" +
-                    "\n" +
-                    "<img src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" width=\"100%\">\n" +
-                    "\n" +
-                    "\n" +
-                    "The function squashes the input between 0 and 1 so we can get probabilities for both our classes.\n" +
-                    "\n" +
-                    "<h5>softmax</h5>\n" +
-                    "Use this function for multi class classification.\n" +
-                    "\n" +
-                    "softmax(x) = ....\n" +
-                    "<img src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" width=\"100%\">\n" +
-                    "\n" +
-                    "\n" +
-                    "This function gives us a probability distribution with as many different probabilities as the numbers of neurons in the output layer. The sum of these probabilities qual to 1 and all the values are in the (0,1) interval.\n" +
-                    "\n" +
-                    "<h5> relu:</h5>\n" +
-                    "This function usually used as activation function for the hidden layers. It is a great function because it solves the problem of vanishing gradients.\n" +
-                    "\n" +
-                    "relu(x) = ...\n" +
-                    "<img src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" width=\"100%\">\n" +
-                    "<img src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" width=\"100%\">\n" +
-                    "\n" +
-                    "\n" +
-                    "<h5>selu</h5>\n" +
-                    "Similar to the relu function, for x > 0 they are the same but below that it does not produces 0.\n" +
-                    "\n" +
-                    "selu(x) = \n" +
-                    "<img src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" width=\"100%\">\n" +
-                    "\n" +
-                    "<h5> Loss functions:</h5>\n" +
-                    "\n" +
+                    "<h4 class='blueTextHero'>Sigmoid:</h4>\n" +
+                    "<p>Use this for binary or multi label models.</p>" +
+
+                    "<img class='docTextImg imgDNN'  src=\"Images/Sigmoid.png\">" +
+                    "<p>The function squashes the input between 0 and 1 so we can get probabilities for both our classes.</p>" +
+
+                    "<h4 class='blueTextHero'>Softmax</h4>\n" +
+                    "<p>Use this function for multi class classification.</p>" +
+                    "<img class='docTextImg '  src=\"Images/softmax.PNG\" width='40%'>" +
+                    "<p>This function gives us a probability distribution with as many different probabilities as the numbers of neurons in the output layer. The sum of these probabilities equal to 1 and all the values are in the (0,1) interval.</p>" +
+                    "<h4 class='blueTextHero'>Relu:</h4>" +
+                    "<p>This function usually used as activation function for the hidden layers. It is a great function because it solves the problem of vanishing gradients.</p>" +
+
+                    "<img class='docTextImg imgDNN'  src=\"Images/relu.PNG\">" +
+
+                    "<h4 class='blueTextHero'>Selu</h4>\n" +
+                    "<p>Similar to the relu function, for x > 0 they are the same but below that it does not produces 0.</p>" +
+                    "<img class='docTextImg imgDNN'  src=\"Images/selu.png\" width='60%'>" +
+
+                    "<h4 class='blueTextHero'> Loss functions:</h4>" +
                     "Loss functions are used to measure our models performance. This will be also utilized when we update the weights of our models, so it's important to choose them correctly. \n" +
                     "Updating our weights will be based on the gradient of the loss function. The gradient shows us which direction does the loss grows the most. We can utilize this by taking the opposite direction of it as that will show us the steepest decrease in the loss. If we know which direction our loss decreases, we can just update the weights of our model based on it. \n" +
-                    "\n" +
-                    "\n" +
-                    "\n" +
-                    "<h5> Binary crossentropy:</h5>\n" +
-                    "\n" +
-                    "Use it in the case of:\n" +
-                    "<ul>\n" +
-                    "\n" +
-                    "\t<li>binary classification </li>\n" +
-                    "\t<li>multi label classification </li>\n" +
-                    "</ul>\n" +
-                    "\n" +
-                    "\n" +
-                    "J<img src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" width=\"100%\">\n" +
-                    "\n" +
-                    "\t- Î¸ denotes all the weights\n" +
-                    "\t- N is the number of examples\n" +
-                    "\t- y_i-s are the true labels, can be either 0 or 1 \n" +
-                    " \t- y^_i are from the [0,1] interval, these are the labels predicted by our model \n" +
-                    "\n" +
-                    "\n" +
-                    "The lower the loss the better.\n" +
-                    "To understand this, we first take a look at the -log(x) function:\n" +
-                    "\n" +
-                    "%TODO: Latifa please insert picture of -log(x) here\n" +
-                    "\n" +
-                    "We can see that the closer we are to zero the greater the value of the -log(x) and if we are close to one the value is really small. In the case of one the -log(1) = 0.\n" +
-                    "\n" +
-                    "Now going back to J(Î¸) equation. If our model had a 100% accuracy our total loss would be 0. If we predict 1 and the true label would be also 1 we would end up with the following : 1 âˆ— log(1) + (1âˆ’ 1) âˆ— log(1âˆ’1) = 1 * 0 + 0 * log(0) = 0. The case of predicting 0 and the true label being 0 is almost the same and we would also end up with zero. Between these values we just penalize our model based on \"how far\" its guess is from the real label. \n" +
-                    "\n" +
-                    "<h5> Categorical crossentropy:</h5>\n" +
-                    "\n" +
-                    "Use it in the case of:\n" +
-                    "\t- multi class classification (always use it with the softmax activation function)\n" +
-                    "\n" +
-                    "<img src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" width=\"100%\">\n" +
-                    "\n" +
-                    "<ul>\n" +
-                    "\n" +
-                    "\t<li> N is the number of examples </li>\n" +
-                    "\t<li> M the number of possible classes (= the number of neurons in the last layer) </li>\n" +
-                    "\t<li> y_i is the one-hot encoded representation of the label </li>\n" +
-                    "\t<li>y^_i is the predicted \"one-hot\" vector </li>\n" +
-                    "</ul>\n" +
-                    "\n" +
-                    "<h5>Target column:</h5>\n" +
-                    "\tThe exact name of the target column, what you want to use as labels for you data.\n" +
-                    "\n" +
-                    "<h5>Categorical column:</h5>\n" +
-                    "\tThe names of the categorical columns separated with comma and no spaces needed.\n" +
-                    "\n" +
-                    "<h5>Epochs:</h5>\n" +
-                    "\n" +
-                    "\tThe number of epochs you want to train the network.\n" +
-                    "\tIn each epoch the network will see all the data from the dataset.\n" +
-                    "\tWe use early stopping so if the training does not improve after a few epochs we simply stop training the model.\n" +
-                    "\n" +
-                    "<h5>Test size:</h5>" +
-                    "The size of the test dataset. If set to 0,1 the data will be split the following way: 90% of the data for training and 10% of it for testing."
+                    "<h4 class='blueTextHero'> Binary crossentropy:</h4>" +
+                    "Use it in the case of:" +
+                    "<ul>" +
+                    "<ul>" +
+                    "<li>binary classification </li>\n" +
+                    "<li>multi label classification </li>\n" +
+                    "</ul>" +
+                    "</ul>" +
+                    "<img class='docTextImg'  src=\"Images/BCE.png\" width='75%'>" +
+
+
+                    "<ul>" +
+                    "<ul>" +
+                    "<li><font face=\"Symbol\">q</font> denotes all the weights </li>" +
+                    "<li>N is the number of examples </li>" +
+                    "<li>y<sub>i</sub>-s are the true labels, can be either 0 or 1</li>" +
+                    "<li>y<sub>i</sub>  are from the [0,1] interval, these are the labels predicted by our model.</li>" +
+                    "</ul>" +
+                    "</ul>" +
+
+                     "<p>The lower the loss the better.To understand this, we first take a look at the log(x) function:</p>" +
+                    "<!--<img class='docTextImg imgDNN'  src=\"https://editor.analyticsvidhya.com/uploads/34513k%20means.png\" \">-->" +
+
+                    "<p>We can see that the closer we are to zero the greater the value of the -log(x) and if we are close to one the value is really small. In the case of one the -log(1) = 0.</p>" +
+
+                    "<p>Now going back to J(<font face=\"Symbol\">q</font>) equation. <br>If our model had a 100% accuracy our total loss would be 0. <br>If we predict 1and the true label would be also 1 we would end up with the following :<br> 1 ∗ log(1) + (1− 1) ∗ log(1−1) = 1 * 0+ 0 * log(0) = 0.<br></p>"+
+
+
+                    "<p> The case of predicting 0 and the true label being 0 is almost the same and we would also end up with zero. Between these values we just penalize our model based on \"how far\" its guess is from the real label.\n</p>"+
+
+
+                    "<h4 class='blueTextHero'> Categorical crossentropy:</h4>\n" +
+                    "Use it in the case of:" +
+                    "- multi class classification (always use it with the softmax activation function)" +
+                    "<img class='docTextImg imgDNN'  src=\"Images/ce_loss.png\" width='60%'>" +
+                    "<ul>" +
+                    "<li> N is the number of examples </li>" +
+                    "<li> M the number of possible classes (= the number of neurons in the last layer) </li>" +
+                    "<li> y<sub>i</sub> is the one-hot encoded representation of the label </li>" +
+                    "<li> y<sup>i</sup> is the predicted \"one-hot\" vector </li>" +
+                    "</ul>" +
+                    "<h4 class='blueTextHero'>Target column:</h4>" +
+                    "The exact name of the target column, what you want to use as labels for you data." +
+                    "<h4 class='blueTextHero'>Categorical column:</h4>" +
+                    "The names of the categorical columns separated with comma and no spaces needed." +
+                    "<h4 class='blueTextHero'>Epochs:</h4>" +
+                    "The number of epochs you want to train the network." +
+                    "In each epoch the network will see all the data from the dataset." +
+                    "We use early stopping so if the training does not improve after a few epochs we simply stop training the model." +
+                    "<h4 class='blueTextHero'>Test size:</h4>" +
+                    "The size of the test dataset. If set to 0,1 the data will be split the following way: 90% of the data for training and 10% of it for testing.<br>"
                 ).insertAfter("#algoInput");
                 $("<div class=\"col-md-6 col-sm-12 col-lg-6 vertical-center ImgDoc \" id=\"imgAlgo\">\n" +
                     "     <img src=\"Images/dnn.png\" width=\"90%\">\n" +

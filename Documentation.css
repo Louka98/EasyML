@@ -37,7 +37,21 @@
     padding-top: 8%;
 
 }
+.docTextImg{
+   margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
 
+}
+
+.imgN{
+    width: 20%;
+}
+
+.imgDNN{
+    width: 40%;
+}
 .video{
     width : 90%;
     height : 65%;
